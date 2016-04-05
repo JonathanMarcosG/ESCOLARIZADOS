@@ -8,7 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelos.Mail;
+import modelos.ClaseEnviarCorreo;
 
 //Envia correo en  apartado de contacto  en  el home 
 public class EnviaMailContacto extends HttpServlet {
@@ -24,9 +24,9 @@ public class EnviaMailContacto extends HttpServlet {
         beanMail.setNombre(nombre);
         beanMail.setCorreo(correo);
         beanMail.setTexto(texto);
-        Mail m = new Mail();
+        ClaseEnviarCorreo m = new ClaseEnviarCorreo();
 
-        boolean ret = m.sendMail(beanMail, Constantes.MAIL_NOMBRE, false, Constantes.MAIL_ASUNTO_CONTACTO);
+        boolean ret = m.sendMailContacto(beanMail, Constantes.MAIL_NOMBRE, false, Constantes.MAIL_ASUNTO_CONTACTO);
         if (ret) {
             out.write("s");
         } else {
