@@ -1,0 +1,3390 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10/11/2014, 02:24:09 PM
+    Author     : Desarrollo de sistem
+*/
+body { font-size: 100%;background-color: #EAEAEA}
+h1 {font-size: 100% }
+
+
+
+@media all and (max-width:880px) {
+    body {font-size: 200%}
+    #informacionpersonal{
+        height: 45%;
+    }
+    #seccion_derecha p #sangre_aviso{
+        margin-top: 43%;
+    }
+}
+
+@media all and (max-width:780px) {
+    body {font-size: 100%}
+    #informacionpersonal{
+        height: 65%;
+    }
+    #seccion_derecha p #sangre_aviso{
+        margin-top: 53%;
+    }
+}
+
+@media all and (max-width:1200px) {
+    body {font-size: 70%}
+
+}
+
+@media all and (max-width:880px) {
+    body {font-size: 200%}
+    #informacionpersonal{
+        height: 45%;
+    }
+    #seccion_derecha p #sangre_aviso{
+        margin-top: 43%;
+    }
+}
+
+@media all and (max-width:780px) {
+    body {font-size: 100%;}
+    #informacionpersonal{
+        height: 65%;
+    }
+    #seccion_derecha p #sangre_aviso{
+        margin-top: 53%;
+    }
+}
+
+@media all and (max-width:1200px) {
+    body {font-size: 70%;}
+
+}
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*=============================Estilo_InicioSesion.css========================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 5/07/2014, 07:46:41 PM
+    Author     : Rocio
+*/
+#TituloApp{
+    alignment-adjust: central;
+    text-align: center;
+    font-size: 21pt;
+    font-family: "Arial", sans-serif, serif;
+    font-style: initial;  
+    float: inside;
+    margin-left: 38%;
+}
+
+h1{
+    text-align: center;
+    font-size: 21pt;
+    font-family: "Arial", sans-serif, serif;
+    font-style: initial;
+}
+.encabezado{
+    text-align: center;
+    max-width: 1340px;
+    min-width: 1000px;
+}
+
+.Informacion_InicioSesion{
+    text-align: center; 
+}
+.pieDePagina{
+    text-align: center;
+    font: 14px/17px serif; 
+    color:lightslategray;
+    margin-bottom: 20px; 
+}
+.encabezado{
+    text-align: center;
+    font: 14px/17px serif; 
+    color:lightslategray;
+    margin-bottom: 20px; 
+}
+
+.Boton_acceder{
+    background-color: #337ab7;
+    color: white;
+    height: 30px;
+    width: 100px;
+    font-family: "Arial", sans-serif, serif;
+}
+.etiqueta_usuario{
+    margin-left: 26px;
+}
+
+.etiqueta_contrasena , .etiqueta_usuario{
+    font-family: "Arial", sans-serif, serif;
+}
+
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*=============================estilo_pasos.css===============================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 19/08/2014, 11:22:47 AM
+    Author     : Chavitta
+*/
+
+#avance{
+    /*background: url("../Imagenes/look_and_feel_azul.png") repeat-x scroll 50% 50% #5c9ccc;*/
+    width: 70%;
+    height: 170px;
+    margin-left: 16%;
+    border-radius: 40px; 
+    margin-top: 1%;
+}
+
+.avances_botones{
+    float: left;
+    width: 40px;
+    height: 40px; 
+    border-radius: 40px;   
+    margin-left: 6%;
+    font-size: 20px;
+}
+#labelenproceso{
+    margin-left: 17%;
+}
+
+#botones_pasos{
+    margin-left: 13%;
+
+}
+#paso1{
+    background-color:red;
+    transform-style: preserve-3d;
+    color: orange;
+    font-weight: 800;
+}
+#paso2,
+#paso3, #paso4,
+#paso5, #paso6,
+#paso7, #paso8,
+#paso9, #paso10{
+    background-color: #CCC;
+    transform-style: preserve-3d;
+    color: orange;
+    font-weight: 800;
+
+
+    /*transform: rotateY(90deg) translateZ(100px);*/
+}
+
+#avance p{
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size: 16px;
+    float: left;
+    margin-left: 20px;
+    text-align:right;
+    color: #000000;
+}
+
+#letrero_pasos{
+    margin-top: -3%;
+    margin-left:  7%;
+    width: 100%;  
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size: 20px;
+    padding: 2%;
+}
+
+#ver_proceso{
+    width: 100px;    
+}
+
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*=============================pop_up_imagen_avance.css=======================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 1/10/2014, 12:23:50 PM
+    Author     : Desarrollo de sistem
+*/
+
+#fade_im_pop_avance{
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index:1001;
+    -moz-opacity: 0.7;
+    opacity:.70;
+    filter: alpha(opacity=70);
+}
+#light_imagen_pop_avance {
+    display: none;
+    height: 200px;
+    left: -3%;
+    margin-left: -150px;
+    margin-top: -100px;
+    overflow: visible;
+    padding: 10px;
+    position: absolute;
+    top: -100%;
+    width: 300px;
+    z-index: 1002;
+}
+#fade_im_avance{
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index:1001;
+    -moz-opacity: 0.7;
+    opacity:.70;
+    filter: alpha(opacity=70);
+}
+#light_im_avance {
+    display: none;
+    height: 200px;
+    left: -3%;
+    margin-left: -150px;
+    margin-top: -100px;
+    overflow: visible;
+    padding: 10px;
+    position: absolute;
+    top: -100%;
+    width: 300px;
+    z-index: 1002;
+}
+
+
+
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*========================diseño_datos_aspirante.css==========================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 6/07/2014, 11:42:57 AM
+    Author     : ElyyzZ BaRruEtA
+*/
+
+
+#personales_izquierdo,#seccion_central, 
+#direccion_izquierdo, #direccion_derecho,
+#derecho_escuela{
+    width: 31.5%;
+    float: left;  
+    margin-top: 1%;
+}
+
+
+#izquierdo_escuela{
+    width: 31.5%;
+    float: left;  
+    margin-top: -1%;
+}
+#seccion_derecha{
+    width: 29%;
+    float: left;
+}
+#seccion_botoncurp{
+    width: 8%;
+    float: left; 
+}
+
+#personales_derecho, 
+#seccion_central fieldset{
+    border:0;
+    margin-top: 3%;
+} 
+#seccion_botoncurp fieldset,
+#personales_izquierdo fieldset{
+    border:0;   
+}
+
+.labels{
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size: 100%;
+    float: left;
+    width: 54%;
+    text-align:right;
+    padding: 5px;
+    color: #000000;
+}
+
+#seccion_derecha p label{
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size:100%;
+    float: left;
+    width: 51%;
+    text-align:end;
+    padding: 7px;
+    color: #000000;
+}
+#seccion_derecha p #sangre_aviso{
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size:100%;
+    float: left;
+    width: 100%;
+    text-align:left;
+    padding: 5px;
+    color: #337ab7;
+    margin-top: 18%;
+}
+
+#seccion_botoncurp p #boton_curp{
+    float: left;
+    text-align: center;
+    width: 100%;
+    background-color: royalblue;
+    color: white;
+    font-weight: 600;
+    margin-top: 8%;
+    margin-left: 20%;
+    font-size: 100%;
+}
+
+
+.Selects{
+    float: right;
+    text-align: left;
+    width: 46%;
+    margin-top: 3px;
+    font-size: 100%;
+    height:20px;
+}
+.tamano_cajas_texto{
+    float: right;
+    text-align: left;
+    width: 46%;
+    font-size: 100%;
+}
+.Campo_bloqueadoAsp{
+    background-color: #f2f2f2;
+}
+
+.tamano_caja_nombre{
+    float: left;
+    text-align: left;
+    width: 40%;
+    font-size:100%;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+#seccion_derecha p #etiqueta_nombre{
+    float: left;
+    text-align: left;
+    width: 46%;
+}
+
+#combo_anio{
+    float: right;
+    text-align: left;
+    width: 16.4%;
+    margin: 1px;
+    font-size: 100%;
+}
+#combo_mes{
+    float: right;
+    text-align: left;
+    width: 14.9%;
+    margin: 1px;
+    font-size: 100%;
+}
+
+#combo_dia{
+    float: right;
+    text-align: left;
+    width: 12.1%;
+    margin: 1px;
+    font-size: 100%;
+}
+
+#personales_izquierdo p br,  
+#seccion_central p br, 
+#seccion_derecha p br{
+    clear: left;
+}
+
+
+/*Direccion*/
+
+#direccion_centro, #centro_escuela{
+    margin-top: 1%;
+    width: 36.5%;
+    float:left;
+
+}
+.inputs_derecha{
+    float: right;
+    text-align: left;
+    width: 36%;
+    font-size: 100%;
+}
+.labels_derecha{
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size: 100%;
+    float: left;
+    width: 59%;
+    text-align:right;
+    padding: 5px;
+    color: #000000;
+}
+
+#direccion_izquierdo fieldset, 
+#direccion_centro fieldset{
+    border: 0px;
+}
+
+#direccion_izquierdo p br ,
+#direccion_centro p br,
+#direccion_derecho p br {
+    clear: left;
+}
+
+/*Escuela de  procedencia*/
+#izquierdo_escuela fieldset, 
+#centro_escuela fieldset, 
+#derecho_escuela fieldset{
+    border:0px;
+}
+
+#buscar_clave{
+    background-color: royalblue;
+    color: white;
+    float:  inside;
+    text-align:center;
+    width: 30%;
+    font-weight: 600;
+    font-size: 100%;
+    margin-right: 10%;
+    margin-top: 10%;
+    margin-bottom: 2%;
+}
+#izquierdo_escuela p br, 
+#centro_escuela p br, 
+#derecho_escuela p br{
+    clear: left;
+
+}
+#mes_inicio, #mes_fin, #anio_fin, #anio_inicio{
+    float: right;  
+    text-align: left;
+    width: 17.9%;
+    margin: 1px;
+}
+/*Carrera*/
+#carrera_opcion1, #carrera_opcion2, 
+#carrera_opcion3{
+    margin-top: 4%;
+    width: 23%; 
+    float: left;
+
+}
+#carrera_curso{
+    margin-top: 4%;
+    width: 31%; 
+    float: left; 
+
+}
+#carrera_opcion1 fieldset, #carrera_opcion2 fieldset, 
+#carrera_opcion3 fieldset, #carrera_curso fieldset{
+
+    border: 0px;
+}
+#carrera_opcion1 p br, #carrera_opcion2 p br, 
+#carrera_opcion3 p br, #carrera_curso p br{
+    clear: left;
+}
+.labels_carrera{
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size: 100%;
+    float: left;
+    width: 30%;
+    text-align:right;
+    padding: 3px;
+    color: #000000;
+}
+.Selects_carrera{
+    float: right;
+    text-align: left;
+    width: 65%;
+    font-size: 100%;
+    height: 15%;
+}
+#propedeuticoSelect{
+    float: left;
+    text-align: left;
+    width: 15%;
+    font-size: 80%;
+}
+#cursopropedeutico_label{
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size:100%;
+    float: left;
+    width: 70%;
+    text-align:right;
+    /*padding: 3px;*/
+    color: #000000;
+    margin-top:-3%;
+}
+
+/*datos_tutor*/
+#datos_padreIzquierdo{
+    width: 55%;
+    float: left; 
+    border-color: #659dff;
+
+}
+#datos_padresderecho{
+    width: 35%;
+    float: left; 
+}
+#izquierdo_padres{
+    float: left;
+    width: 54%;
+}
+#derecho_padres{
+    float: left;
+    width: 35%;
+}
+#input_nopersonas{}
+#input_nopersonas{
+    margin-top: 3%;
+    font-size: 100%;
+    width: 40%;
+}
+#datos_padres{
+    margin: 1px;
+    margin-left: 1px;
+}
+#datos_padreIzquierdo fieldset, 
+#datos_padresderecho fieldset{
+    border: 0px;
+}
+#datos_padreIzquierdo p br, 
+#datos_padresderecho p br{
+    border: 0px;
+}
+.labels_socioeconomicos{
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size: 100%;
+    font-size-adjust: inherit;
+    float: left;
+    width: 60%;
+    text-align:right;
+    padding: 5px;
+    color: #000000;
+   
+}
+
+.label_socios2{
+    /*//font-size        : 100%;*/
+    float            : start;
+    /*//font-size-adjust : inherit;*/
+    font-family      : Helvetica;
+    /*//text-align       : right;*/
+    font-size        : 20px;
+    color            : #ffffff;
+    /*//background-color : #009900;*/
+    /*//border           : 3px solid #006600;*/
+    /*//padding          : 1px;*/
+}
+.Selects_socioeconomicos{
+    float: right;
+    text-align: left;
+    width: 40%;
+    font-size:100%;
+    margin-top: 1%;
+}
+#quiendepende{
+    float: right;
+    text-align: left;
+    width: 39%;
+    font-size: 100%;
+    margin-top: 2%;
+}
+.inputs_socioeconomicos{
+    float: right;
+    text-align: left;
+    width: 39%;
+    font-size: 100%;
+}
+/*{
+font-family      : Helvetica;
+    font-size        : 24px;
+    color            : #ffffff;
+    background-color : #009900;
+    border           : 3px solid #006600;
+    padding          : 10px;
+    }*/
+.Selects_economico{
+    float: right;
+    text-align: left;
+    width: 40%;
+    margin-top: 3px;
+    font-size:100%;
+    height:20px;
+}
+
+#socioeconomicos_inferior{
+
+    height: 310px;
+}
+/*datos_socioeconomicos*/
+#socioeconomicos_inferior, #socioeconomicos_superior{
+    width: 99%;
+    float: left;
+    padding: 5px;
+    margin-top:  5px;
+
+
+
+}
+#socioeconomicos_inferior fieldset, #socioeconomicos_superior fieldset{
+    border: 0px;
+    width:46%; 
+    float: left;
+
+}
+
+#dependientes_sustento{
+    margin-top: 35px;
+}
+#datos_emergencia{
+    width: 99%;
+    margin-left: 1px;   
+    height: 390px;   
+}
+#datos_emergencia fieldset{
+    border: 0px; 
+    float: left;
+    width: 54%;
+
+}
+
+/*BOTONES continuar  y borrar*/
+
+
+#botones_continuar{
+    border: 0px;
+}
+
+
+#continuar_datos
+{
+    background-color: royalblue;
+    color: white;
+    height: 30px;
+    width: 100px;   
+    margin: 3%;
+    margin-left: 40%;
+    font-weight: 600;
+    font-size: 120%;
+}
+#continuar_socioeconomicos{
+    background-color: royalblue;
+    color: white;
+    height: 30px;
+    width: 100px;   
+    margin: 3%;
+    margin-left: 3%;
+    font-weight: 600;
+    font-size: 120%;
+}
+#regresar_socioeconomicos{
+    background-color: royalblue;
+    color: white;
+    height: 30px;
+    width: 100px;   
+    margin: 3%;
+    margin-left: 30%;
+    font-weight: 600;
+    font-size: 120%;
+}
+
+#borrar_datos, 
+#borrar_socioeconomicos{
+    background-color: royalblue; 
+    color: white;
+    height: 30px;
+    width: 150px;   
+    font-weight: 600;
+    font-size: 120%;
+    margin-left: 3%;
+}
+
+/*// PASOS*/ 
+#avance{
+    background: url("../Imagenes/look_and_feel_azul.png") repeat-x scroll 50% 50% #5c9ccc;
+    width: 70%;
+    height: 100px;
+    margin-left: 200px;
+    border-radius: 40px;
+}
+#avance{
+    background: url("../Imagenes/look_and_feel_azul.png") repeat-x scroll 50% 50% #5c9ccc;
+    width: 60%;
+    height: 105px;
+    margin-left: 20%;
+    border-radius: 40px; 
+    margin-top: 1%;
+}
+
+.avances_botones{
+    float: left;
+    width: 30px;
+    height: 30px; 
+    border-radius: 30px;   
+    margin-left: 8%;
+    font-size: 22px;
+    text-align: center;
+}
+#labelenproceso{
+    margin-left: 18%;
+    font-size: 12px;
+}
+
+#botones_pasos{
+    margin-left: 12%;
+
+}
+#paso1{
+    background-color:red;
+    transform-style: preserve-3d;
+    color: orange;
+    font-weight: 800;
+}
+#paso2,
+#paso3, #paso4,
+#paso5{
+    background-color: gray;
+    color: orange;
+    font-weight: 800;
+    transform-style: preserve-3d;
+
+
+    /*transform: rotateY(90deg) translateZ(100px);*/
+}
+
+#avance p{
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size: 14px;
+    float: left;
+    margin-left: 20px;
+    text-align:right;
+    color: #000000;
+}
+
+#letrero_pasos{
+    margin-top: -3%;
+    margin-left:  7%;
+    width: 100%;  
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size: 14px;
+    padding: 2%;
+    height: 0%;
+
+}
+.shadows{
+    text-decoration: none;  
+}
+
+#ver_proceso{
+    width: 80px;    
+    margin-top: -1%;
+    /*background: white;*/
+    /*color: orange;*/
+    font-weight: 800;
+}
+#atencion{}
+#atencion{
+    font-size: 130%;
+    float: left;
+    width: 55%;
+    background-color: white;
+}
+
+#ayudaAsp{
+    height: 9%;
+    width: 25%;
+    float: right;
+
+}
+
+#contenedor_texto{    
+    margin: 14px;
+    width: 97%; 
+    height: 490px;
+    background: #fff;
+    border: 1px solid #4297d7;
+    font-weight: bold;
+    color:#000;
+    border-radius: 15px;
+}
+
+#contenedor_texto  #area_de_texto fieldset{
+    border: 0px;   
+}
+#Recuerde{
+    color: #FFF;
+    text-align: center;
+}
+#area_de_texto{
+    background-color: #CCC;
+    border: 5px;
+    width: 94%;
+    height: 55%;
+    margin-left: 30px;
+    color: #000000;
+    border-radius: 15px;
+}
+
+#contenedor_texto #area_de_texto p .etiquetas_derecha{
+
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size: 18px;
+    float: left;
+    width: 30%;
+    text-align:right;
+    padding: 5px;
+    color: black;
+}
+#contenedor_texto #area_de_texto p .etiquetas_izquierda{
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size: 18px;
+    float: right;
+    width: 65%;
+    text-align:left;
+    padding: 5px;
+    color: black;
+    background-color: #CCC;
+}
+
+#confirmar , #cancelar{
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size: 100%;
+    margin-left:  25%;
+    width: 100px; 
+    color: orange;
+    background-color: #ffffff;
+    height: 30px;
+    margin-top: 3%;
+
+}
+
+#aviso_label {
+    display: block;
+    font-size: 200%;
+    font-weight: bold;
+    margin: 0.67em 0;
+    text-align: center;
+    /*height: 10%;*/
+}
+#label_confirmacion{
+    display: block;
+    font-size: 150%;
+    font-weight: bold;
+    margin: 0.67em 0;
+    text-align: center;  
+}
+#divatencion{
+
+    float: left;
+    margin-top: 5px;
+    width: 75%;
+    margin-left: 13%;
+}
+#ayudabtn,  #iniciobtn{
+    width: 20%; 
+    height: 40px;
+    margin-top: 4%;
+    margin:5%;
+    alignment-adjust: auto;
+}
+/*//pop up*/
+#divmarco{}
+#divmarco{
+    /*display: none;*/
+    position: absolute;
+    top: 220%;
+    left: 26%;
+    width: 70%;
+    height: 98%;
+    margin-left: -150px;
+    margin-top: -99%;                 
+    padding: 10px;
+    border: 2px solid #FFF;
+    background: #FFF;
+    z-index:1002;
+    overflow:visible;
+    max-width: 1000px;
+    min-width: 500px;
+    min-height: 300px;
+    max-height: 550px;
+}
+
+#div_fondomarco{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index:1001;
+    -moz-opacity: 0.7;
+    opacity:.70;
+    filter: alpha(opacity=70);
+
+}
+
+#nombre_app{
+    margin: 4%;
+    margin-top: 3%;
+}
+#cargacorrecta{
+    background: url("../Imagenes/look_and_feel_azul.png") repeat-x scroll 50% 50% #5c9ccc;
+    width: 98%;
+    height: 300px; 
+    border-radius: 10px;
+    margin-top: -1%;
+    margin: 1%;
+}
+#Labelcarga{
+    text-align: center;
+    margin-top: 2%;
+
+}
+#imagencarga{
+    margin-right: 1%;
+    margin-top: 2%;
+}
+#carga{
+    position: absolute;
+    top: 24%;
+    left: 26%;
+    width: 70%;
+    height: 62%;
+    margin-left: -150px;
+    margin-top: -100px;                 
+    padding: 10px;
+    border: 2px solid #FFF;
+    z-index:1002;
+    overflow:visible;
+    background-color: #ffffff;
+}
+#fondocarga{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index:1001;
+    -moz-opacity: 0.7;
+    opacity:.70;
+    filter: alpha(opacity=70); 
+}
+#existosa{
+    color: darkorange;
+    font-size: 40px;
+    font-weight: bold;
+}
+#textoexitosa{
+    font-size: 23px;
+    margin-top: 5%;
+    width: 78%;
+    margin-left: 10%;
+}
+#botonesconfirmar{
+    height: 50px;
+    margin-top:  3%;
+}
+#confirmarcarga,#cancelarcarga{
+    margin-left: 25%;
+    width: 110px;
+    height: 35px;
+    font-size: 100%;
+    color: #e17009;
+    background:  #ffffff;
+
+}
+#correcta1,  #correcta2, #correcta3,
+#incorrecta1, #incorrecta2, #incorrecta3
+{
+    margin-left: 17%;
+}
+
+/*//registro finalizado*/
+#finalizadodiv{}
+#finalizadodiv{
+    background: #fff;
+    width: 98%;
+    height: 94%; 
+    border-radius: 10px;
+    margin-top: -1%;
+    margin: 1%;
+    border-color: #337ab7;
+}
+#correoFinalizado{
+    text-align: center;
+}
+#aceptarfinalizado{
+    margin-left: 45%;
+    width: 100px;
+    height: 30px;
+    font-size: 18px;
+    color: white;
+    background: #337ab7;
+    margin-top: 4%;
+}
+#cancelarfinalizado{
+    margin-left: 45%;
+    width: 100px;
+    height: 30px;
+    font-size: 18px;
+    color: white;
+    background: #337ab7;
+    margin-top: 4%;}
+
+#imagenfinalizado{
+    width: 5%;
+    height: 7%;
+    margin-top: 2%;
+
+}
+
+#textofin h2{
+    text-align: center;
+    margin-top: 2%;
+
+}
+#textofinalizado{
+    background: #fff;
+    color:black;
+    width: 75%;
+    margin-left: 13%;
+    font-size: 20px;
+    height: 300px;
+    text-align: justify;
+}
+#textofinalizado blockquote{
+    margin-top: 4%;
+}
+
+#continuarsocioeconomicos{
+    width: 100%;
+    height: 100px;
+    margin-top: 3%;
+}
+#continuarsocioeconomicos fieldset{
+    border: 0px;
+    width: 100%;
+}
+#fondofinalizado{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index:1001;
+    -moz-opacity: 0.7;
+    opacity:.70;
+    filter: alpha(opacity=70);
+
+}
+#finalizado{
+    position: absolute;
+    top: 24%;
+    left: 26%;
+    width: 70%;
+    height: 83%;
+    margin-left: -150px;
+    margin-top: -100px;                 
+    padding: 10px;
+    border: 2px solid #FFF;
+    z-index:1002;
+    overflow:visible;
+    background-color: #fff;
+    max-width: 1000px;
+    min-width: 500px;
+    min-height: 300px;
+    max-height: 550px;
+}
+
+/*//CCT*/ 
+/*//select*/
+#contenidoCCT{}
+#contenidoCCT{
+    background: #fff;
+    width:98%;
+    margin-left: 1%;
+    height: 98%;
+    margin-top: 0%;
+}
+#CCTs{
+    margin-top: 1%;
+}
+#clavecct{
+    width: 60%;
+    margin-left:20%;
+    margin-top: -21%;
+}
+#aceptarCCT{
+    /*margin-top: 3%;*/
+    width: 130px;
+    background:#337ab7;
+    color: #fff;
+    margin-left: 20%;
+    font-size: 140%;
+}
+#cancelarCCT{
+    /*margin-top: -2%;*/
+    width: 130px;
+    background:#337ab7;
+    color: #fff;
+    margin-left: 40%;
+    font-size: 140%;
+}
+#tablaCCT{
+    border: 1px;
+    width: 100%;
+    font-size: 100%;
+
+}
+#contenidoCCT label{
+    margin-top: 1%;
+}
+#listaCCT{
+    background:#FFF;
+    height: 90%;
+    width: 96%;
+    margin-left: 2%;
+}
+/*///Zoom///*/
+
+#content_image {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    background-color: #000000;
+}
+@media (min-width: 600px) {}
+@media (min-width: 600px) {
+    #content_image {
+        width: 70%;
+        margin-left: 32%;
+        -webkit-box-shadow: 0 0 20px 0 #999;
+        -moz-box-shadow: 0 0 20px 0 #999;
+    }
+}
+.frameAsp {}
+.frameAsp {
+    margin-bottom: 20px;
+    margin-left: -46%;
+}
+
+#manual_aspirante { 
+    width: 99%; 
+    /*margin-left: 7%;*/
+}
+
+#controlsAsp { margin-bottom: 40px; 
+               margin-left: 20%;}
+
+#controlsAsp button {
+    margin: 0 5px;
+    min-width: 40px;
+    color: #555;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+#controlsAsp button:hover { color: #333; }
+
+
+
+
+
+
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*========================pop_up_mail.css=====================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2/09/2014, 07:40:18 PM
+    Author     : Chavitta
+*/
+
+/*#fade_correo{}*/
+#fade_correo{
+    display: none;    
+    background: none repeat scroll 0 0  black;
+    opacity:0.8;
+    position:fixed;
+    top:0; 
+    left:0;
+    height: 100%;
+    width: 100%;
+}
+#light_correo {
+    position: fixed;
+    top:100%;
+    left: 20%;
+    width:40%;
+    height: 90%;
+    margin-left:150px;
+    margin-top: -45%;                 
+    padding: 10px;
+    border: 2px solid #FFF;
+    background: none repeat scroll 0 0 white;
+    z-index:100;
+    overflow:visible;
+    display: none;    
+}
+
+
+
+
+
+
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*==============================Marcos.css====================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 6/07/2014, 10:34:29 AM
+    Author     : ElyyzZ BaRruEtA
+*/
+
+#informacionpersonal {
+    height: 45%;
+    margin-left: 13%;
+    margin-right: 0;
+    margin-top: -6%;
+    width: 75%;
+    overflow: hidden;
+
+}
+
+#direccionaspirante{
+    height:225px;
+    margin-left: 13%;
+    margin-right: 0;
+    width: 75%
+}
+#escuelapro{
+    height: 225px;
+    margin-left: 13%;
+    margin-right: 0;
+    width: 75% 
+}
+#carreradeseada{
+    height: 140px;
+    margin-left: 13%;
+    margin-right: 0;
+    width: 75% 
+}
+#datostutor{
+    height:519px;
+    margin-left:12%;
+    margin-right: 0;
+    width:76%;
+    margin-top: -5%;
+
+}
+.SiNo{
+    margin-left: 3%;
+}
+.vive{
+    width: 25%;
+    text-align: right;
+    margin-right: 3%;
+
+}
+#datosbeca{
+    height: 415px;
+    margin-left: 12%;
+    width: 76%;
+    resize:both;
+    overflow:no-display;
+}
+#cargarfotografia{
+    height: 368px;
+    margin-left: 13%;
+    margin-right: 0;
+    width: 75%;
+    resize: both;
+    overflow: no-display; 
+    margin-top: 2%;
+}
+#caracteisticasfoto{
+    height:720px;
+    margin-left: 13%;
+    margin-right: 0;
+    width: 75%;
+    resize: both;
+    overflow: no-display;   
+}
+#contenido{
+    margin-top: 8%;
+    resize: both;
+    max-width: 1500px;
+    min-width: 1100px;
+}
+
+#barrainferior, #barrasuperior{
+    width: 75%;
+    margin-left: 13%;
+    margin-top:  2%;
+    margin-bottom: 7%;
+}
+#barrainferior img, #barrasuperior img{
+    width: 100%;
+    float: left;
+    margin:1%;
+}
+#modulo{
+    margin-top:  4%;
+    margin-bottom: 4%;
+    max-width: 1340px;
+    min-width: 1000px;
+}
+
+
+#SelecionaClave{
+    position: fixed;
+    top:100%;
+    left: 15%;
+    width:93%;
+    height: 100%;
+    margin-left: -150px;
+    margin-top: -46.8%;                 
+    padding: 10px;
+    border: 2px solid #FFF;
+    background: #337ab7;
+    z-index:1002;
+    overflow:visible;    
+}
+#FondoSeleccionaClave{
+    background:#000;
+    opacity:0.8;
+    position:fixed;
+    top:0; 
+    left:0;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*==============================contorno.css==================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25/08/2014, 01:38:32 PM
+    Author     : Chavitta
+*/
+
+#marco1 {
+    border-color: #0099ff;
+    border-radius: 8.5px;
+    border-style: solid;
+    border-width: 1px;
+    left: -18px;
+    margin: 2%;
+    position: relative;
+    width: 924px;
+}
+#marco1 h4, h5{
+    margin-left: 35px;
+}
+#imagen_izq{
+    border-color: #337ab7;
+    border-radius: 8.5px;
+    border-style: solid;
+    border-width: 1px;
+    left: 0;
+    margin: 2%;
+    position: relative;
+}
+#imagen_der{
+    background-color: blue;
+    border-color: #337ab7;
+    border-radius: 8.5px;
+    border-style: solid;
+    border-width: 1px;
+    left: 0;
+    margin: 2%;
+    position: relative;
+}
+#marco2 {
+    /*    background:#CCC;*/
+    left: 0;
+    margin: 2%;
+    position: relative;
+}
+#marco2 h5{
+    color:black;
+}
+#marco3 {
+    border-color: #337ab7;
+    border-radius: 8.5px;
+    border-style: solid;
+    border-width: 1px;
+    left: 0;
+    margin: 2%;
+    position: relative;
+}
+
+
+.container{
+    text-align:left;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.izquierda{
+    margin: 20px auto auto auto;
+    float: left;
+    background:blue
+}
+.der{
+    float: left;
+    width: 75%;
+    /*background:red*/
+}
+/*.center{
+    background:green;
+    margin:0 auto; 
+    display:inline-block
+}*/
+
+
+
+
+
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*==============================cargar_foto.css===============================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24/07/2014, 10:51:17 AM
+    Author     : ElyyzZ BaRruEtA
+*/
+
+#areafotografia{
+
+    float: left;
+    /*    max-width: 100%;
+        max-height: 100%;*/
+    margin-top: 5%;
+    margin-left: 10%;
+    height: 40%;
+    width: 15%;
+
+}
+#fotografia{
+    max-width: 150px;
+    max-height: 150px;
+}
+
+
+#subirfoto{
+
+    background-color: royalblue;
+    color: white;
+    margin-top: 4%;
+    margin-left: 29%;
+    border: 1px solid black; margin-bottom: .5em;
+}
+#subirdespues{
+    background-color: royalblue;
+    color: white;
+    margin-top: -4%;
+    margin-left:75%;
+}
+/*#subirfoto { margin-left: .5em; float: left; }*/
+/*#field, label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }*/
+br { clear: both; }
+/*input { border: 1px solid black; margin-bottom: .5em;  }*/
+input.error { border: 1px solid red; }
+label.error {
+    background: url('images/unchecked.gif') no-repeat;
+    padding-left: 16px;
+    margin-left: .3em;
+}
+label.valid {
+    background: url('images/checked.gif') no-repeat;
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+
+.centraretiqueta {
+    border-bottom-width: 0;
+    float: left;
+    list-style: none outside none;
+    margin: -5px 6px 11px;
+    padding: 0;
+    position: relative;
+    top: 0;
+    white-space: nowrap;
+    margin-left: 20%;
+}
+#listaReq{
+    margin-left: 4%;
+    margin-top: 2%;
+}
+#correctas, #incorrectas{
+    margin-top: -3%;
+    width: 90%;
+    height: 20%; 
+    margin-left: 5%;
+}
+#correctas_label, #incorrectas_label{
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    height: 10%;
+    color: orange;
+
+}
+#caracteisticasfoto p{
+    color: red;
+    text-align: center;
+}
+
+/*
+#content_image {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    background-color: #000000;
+}
+
+@media (min-width: 600px) {
+    #content_image {
+        width: 70%;
+        margin-left: 32%;
+        -webkit-box-shadow: 0 0 20px 0 #999;
+        -moz-box-shadow: 0 0 20px 0 #999;
+    }
+}
+
+.frameAsp {
+    margin-bottom: 20px;
+    margin-left: -60%;
+}
+
+#manual_aspirante { width: 100%; }
+
+#controlsAsp { margin-bottom: 40px; 
+               margin-left: -55%;}
+
+#controlsAsp button {
+    margin: 0 5px;
+    min-width: 40px;
+    color: #555;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+#controlsAsp button:hover { color: #333; }*/
+
+
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*==========================Estilo_MenuAspirante.css==========================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+
+
+
+*{margin:0 ;padding:0}
+
+h1{
+    font-size: 30pt;
+
+    font-family: "Arial", sans-serif, serif;
+    font-style: initial;
+    position: relative;
+    text-align: center;
+}
+
+.Contenido_menu {
+    background: #ffffff;
+    border-color: #337ab7;
+    border-radius: 8.5px;
+    border-style: solid;
+    border-width: 1px;
+	/* original
+    height: 950px;*/
+	/* cambios*/
+	height:1204px;
+    left: 0;
+    margin-left: 12%;
+    margin-top: -22px;
+    position: relative;
+    width: 1029px;
+}
+
+#Contenedor_Bienvenido h4 h5{
+    text-align: justify;
+}
+#Contenedor_Bienvenido {
+    border-color: #337ab7;
+    border-radius: 8.5px;
+    border-style: solid;
+    border-width: 1px;
+	/*Original
+    height: 905px;*/
+	/*cambios*/
+	height: 1165px;
+    margin-bottom: 50px;
+    margin-left: 2%;
+    margin-top: 2%;
+    position: absolute;
+    width: 987px;
+    background-color: #ffffff;
+}
+#contenedor_1 {
+    border-color: #337ab7;
+    border-radius: 8.5px;
+    border-style: solid;
+    border-width: 1px;
+    height: 400px;
+    width: 88%;
+    margin: 4% auto;
+}
+#mapa{
+    border-color: #337ab7;
+    border-radius: 8.5px;
+    border-style: solid;
+    border-width: 1px;
+    height: 325%;
+    width: 88%;
+    margin: 4% auto;
+}
+#contenedor_2 {
+    border-color: #337ab7;
+    border-radius: 8.5px;
+    border-style: solid;
+    border-width: 1px;
+    height: 150%;
+    margin: 3% auto;
+    width: 88%;
+}
+#red {
+    border-color: #337ab7;
+    border-radius: 8.5px;
+    border-style: solid;
+    border-width: 1px;
+    height: 45%;
+    margin: 3% auto;
+    width: 88%;
+}
+#telefono {
+    border-color: #337ab7;
+    border-radius: 8.5px;
+    border-style: solid;
+    border-width: 1px;
+    height: 78%;
+    margin: 3% auto;
+    width: 88%;
+}
+#mail {
+    border-color: #337ab7;
+    border-radius: 8.5px;
+    border-style: solid;
+    border-width: 1px;
+    height: 45%;
+    margin: 3% auto;
+    width: 88%;
+}
+#centrar{
+    text-align: justify;
+    margin: 10px 15px 9px 0px;
+}
+#centrar_inf{
+    text-align: justify;
+    margin:10px 15px 9px 0px;
+}
+
+#pieDePagina{
+    text-align: center;
+    font: 14px/17px serif;
+    color: lightslategray;
+    margin-bottom: 20px;
+}
+#estatico{ 
+    /*    height: 250px; 
+        width: 50px; */
+    background-color: #f5f5f5; 
+    border: solid 1px silver; 
+    position: fixed;     
+}
+#sangria li{
+    margin-left: 30%;
+}
+#sangria2{
+    margin-left: 10%;
+}
+#Contenedor_radioButton {
+    /*        border-color: red;
+            border-radius: 8.5px;
+            border-style: solid;
+            border-width: 1px;*/
+    height: 42%;
+    margin-left: 35%;
+    margin-top: -2%;
+    position: absolute;
+    width: 50%;
+}
+#Contenedor_tablafechas {
+    height: 150%;
+    margin-left: 5%;
+    margin-top: 2%;
+    position: absolute;
+    width: 89%;
+    text-align: right;
+    border-color: #0099ff;
+    border-radius: 8.5px;
+    border-style: solid;
+    border-width: 1px;
+}
+/*#Contenedor_principal_comodadito{
+    border-width: 1px;
+    border-style: solid;    
+    border-color: #0099FF;
+    border-radius: 8.5px;  
+    position: absolute;
+}*/
+
+.Contenido_rb {
+    border-color: #337ab7;
+    border-radius: 8.5px;
+    border-style: solid;
+    border-width: 3px;
+    height: 50px;
+    left: 15%;
+    margin: -33px 0 0 -150px;
+    position: relative;
+    text-align: center;
+    width: 50px;
+}
+.Texto_centro{
+    text-align: center;
+}
+.Texto_derecha{
+    float: left;
+    text-align: right;
+}
+.Texto_izquierda{
+    float: right;
+    text-align: left;
+}
+
+.documents_asp_izq{
+    border-color: red;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 3px;
+    height: 180px;
+    left: 15%;
+    margin: 20px 0 0 350px;
+    position: relative;
+    text-align: center;
+    width: 450px;
+}
+.documents_asp_der{
+    border-color: blue;
+    border-radius:10px;
+    border-style: solid;
+    border-width: 3px;
+    height: 50px;
+    left: 15%;
+    margin: -33px 0 0 -100px;
+    position: relative;
+    text-align: center;
+    width: 50px;
+}
+#panelizquierda {
+    float: left;
+    margin: 0% 2%;
+    /*padding: 10px;*/
+    width: 75%;
+}
+#panelderecha {
+    float: left;
+    margin: 0% 0%;
+    margin-top: 1%;
+    /*padding: 10px;*/
+    width: 20%;
+}
+#Contenedor_Bienvenido h3{
+    font-family: Gill Sans, Verdana;
+    text-align: center;
+    font-size: 30px;
+}
+
+#imagen_inicio{
+    margin-top: 15px;
+    margin-left: 80px;
+}
+#Menu_desplegable{
+    background: #337ab7;
+    width: 15%;
+    height: 730px; 
+    margin: 4%;
+    margin-top: 2%;
+    color:   tomato;
+    box-shadow: 0 5px 15px 1px rgba(0,0,10,0.6),
+        0 0 200px 1px rgba(255,255,255,0.5); 
+    position:relative;
+    border-radius: 8.5px;
+}
+
+
+/*#panel_recupera_azul {
+    background: none repeat scroll 0 0 #0099ff;
+    border-radius: 8.5px;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 10, 0.6), 0 0 200px 1px rgba(255, 255, 255, 0.5);
+    height: 170%;
+    margin: 24% auto 19%;
+    width: 75%;
+}
+
+#panel_recupera_azul h3{
+    margin-top: 2%;
+}*/
+#panel_consultas {
+    background: none repeat scroll 0 0 #337ab7;
+    border-radius: 8.5px;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 10, 0.6), 0 0 200px 1px rgba(255, 255, 255, 0.5);
+    height: 70%;
+    margin: -5% auto 19%;
+    width: 55%;
+}
+#panel_consultas_recupera {
+    border-color: black;
+    background: none repeat scroll 0 0 #337ab7;
+    border-radius: 8.5px;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 10, 0.6), 0 0 200px 1px rgba(255, 255, 255, 0.5);
+    height: 160%;
+    margin: 5% -2% 0 9%;
+    width: 80%;
+}
+#aviso_recupera{
+    background: none repeat scroll 0 0 #ffffff;
+    border-radius: 8.5px;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 10, 0.6), 0 0 200px 1px rgba(255, 255, 255, 0.5);
+    margin: 10% 8%;
+}
+#aviso_recupera h1{
+    /*color: orange;*/
+    color: black;
+    text-align: center;
+    font-size: 120%;
+    margin: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+#text_recupera_recupera {    
+    /*    background: none repeat scroll 0 0 #ffffff;
+        border-radius: 8.5px;
+        box-shadow: 0 5px 15px 1px rgba(0, 0, 10, 0.6), 0 0 200px 1px rgba(255, 255, 255, 0.5);
+        margin: 0% 8%;*/
+}
+#text_recupera_recupera h1 {    
+    color: white;
+    font-size: 25px;
+    margin: 3% 2% 8% 3%;
+}
+#panel_aviso_recupera {
+    color: black;
+    text-align: center;
+    font-size: 120%;
+    margin: 5%;
+    margin-top: -5%;
+    margin-bottom: 5%;
+}
+#visualiza_barra {
+    border-color: #0099ff;
+    border-radius: 8.5px;
+    border-style: solid;
+    border-width: 1px;
+    height: 50px;
+    left: 0;
+    margin: -13% auto;
+    text-align: center;
+    width: 500px;
+}
+#visualiza_barra_img {
+    height: 50px;
+    left: 0;
+    margin: 21% -0.5%;
+    width: 500px;
+}
+#visualiza_barra h4{
+    color: orange;
+}
+#panel_blanco_recupera {
+    background: none repeat scroll 0 0 #ffffff;
+    border-radius: 8.5px;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 10, 0.6), 0 0 200px 1px rgba(255, 255, 255, 0.5);
+    height: 33%;
+    margin: 10% 9%;
+    width: 31%;
+}
+#panel_blanco_seguimiento{
+    background: none repeat scroll 0 0 #ffffff;
+    border-radius: 8.5px;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 10, 0.6), 0 0 200px 1px rgba(255, 255, 255, 0.5);
+    height: 33%;
+    margin: 10% 9%;
+    width: 31%;
+}
+
+#contiene {
+    border-radius: 8.5px;
+    height: 135%;
+    margin: 63px 175%;
+    position: relative;
+    width: 110%;
+}
+#elem_recupera {
+    border-color: red;
+    height: 33%;
+    margin: -6% auto;
+    width: 51%;
+}
+#text_recupera{
+    background: none repeat scroll 0 0 #ffffff;
+    border-radius: 8.5px;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 10, 0.6), 0 0 200px 1px rgba(255, 255, 255, 0.5);
+    margin: 15px 9%;
+}
+#text_recupera h1{
+    color: orange;
+    text-align: center;
+    font-size: 20px;
+}
+#text_recupera_recupera_aviso{
+    background: none repeat scroll 0 0 #ffffff;
+    border-radius: 8.5px;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 10, 0.6), 0 0 200px 1px rgba(255, 255, 255, 0.5);
+    margin: 10% 8%;
+}
+#text_recupera_recupera_aviso h1{
+    color: orange;
+    text-align: center;
+    font-size: 20px;
+}
+
+/*#text_recupera_recupera_aviso{
+   background: none repeat scroll 0 0 #ffffff;
+    border-radius: 8.5px;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 10, 0.6), 0 0 200px 1px rgba(255, 255, 255, 0.5);
+    margin: 10% 8%;
+}
+#text_recupera_recupera_aviso h1{
+    color: black;
+    text-align: center;
+    font-size: 20px;
+}*/
+
+#elem_seguimiento{
+    border-color: red;
+    height: 33%;
+    margin: auto auto;
+    width: 70%;
+    margin: 4% auto 0 auto;
+}
+#text_seguimiento {
+    background: none repeat scroll 0 0 #ffffff;
+    border-radius: 8.5px;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 10, 0.6), 0 0 200px 1px rgba(255, 255, 255, 0.5);
+    margin: 23% 5%;
+}
+#text_seguimiento h1{
+    /*color: orange;*/
+    color: black;
+    text-align: center;
+    font-size: 120%;
+    margin: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+#text_seguimiento_s {
+    background: none repeat scroll 0 0 #ffffff;
+    border-radius: 8.5px;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 10, 0.6), 0 0 200px 1px rgba(255, 255, 255, 0.5);
+    margin: 10% 8%;
+}
+#text_seguimiento_s h1{
+    /*color: orange;*/
+    color: black;
+    text-align: center;
+    font-size: 120%;
+    margin: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+#text_seguimiento_recupera {
+    background: none repeat scroll 0 0 #ffffff;
+    border-radius: 8.5px;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 10, 0.6), 0 0 200px 1px rgba(255, 255, 255, 0.5);
+    margin: 0% 5%;
+}
+#text_seguimiento_renovar {
+    background: none repeat scroll 0 0 #ffffff;
+    border-radius: 8.5px;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 10, 0.6), 0 0 200px 1px rgba(255, 255, 255, 0.5);
+    margin: 0% 5%;
+}
+#text_renovar h1 {    
+    color: white;
+    font-size: 25px;
+    margin: 3% 2% 8% 3%;
+}
+#mjeRenovar{
+    text-align: justify;
+}
+#text_seguimiento_recupera2 {
+    background: none repeat scroll 0 0 #ffffff;
+    border-radius: 8.5px;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 10, 0.6), 0 0 200px 1px rgba(255, 255, 255, 0.5);
+    margin: 0% 5%;
+}
+#text_seguimiento_recupera h1{
+    /*color: orange;*/
+    color: black;
+    text-align: justify;
+    font-size: 150%;
+    margin: 6% 8% 14%;
+}
+#text_seguimiento_renovar h1{
+    /*color: orange;*/
+    color: black;
+    text-align: justify;
+    font-size: 150%;
+    margin: 6% 8% 14%;
+}
+#panel_blanco_pequeño{
+    text-align: center;
+}
+#Menu_desplegable h1{
+    color: #000000;
+}
+#Menu_desplegable h3:hover{
+    text-shadow: FF9933;
+}
+#Menu_desplegable h3 {
+    background: linear-gradient(#f0f0f0, white) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-radius: 8.5px;
+    cursor: pointer;
+    font-family: "Arial",sans-serif,serif;
+    font-size: 12px;
+    line-height: 45px;
+    margin-left: 12px;
+    margin-right: 11px;
+    margin-top: 10px;
+}
+
+#Menu_desplegable li{
+    list-style-type:none;
+}
+
+#Menu_desplegable ul ul li a{
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 27px;
+    display: block;
+    padding: 0 15px;
+    transition: all 0.15s;
+    font-family: "Arial";
+}
+
+#Menu_desplegable ul ul li a:hover{
+    background: orange;
+    border-left: 5px solid lightblue;
+}
+
+#Menu_desplegable ul ul{
+    display:none;
+}
+
+#informacion_personal {
+    height: 270px;
+    margin-left: 30px;
+    margin-right: 0;
+    width: 95%
+}
+
+#direccion{
+    height:225px;
+    margin-left: 30px;
+    margin-right: 0;
+    width: 95%
+}
+#escuela_procedencia{
+    height: 210px;
+    margin-left: 30px;
+    margin-right: 0;
+    width: 95% 
+}
+#carrera{
+    height: 140px;
+    margin-left: 30px;
+    margin-right: 0;
+    width: 95% 
+}
+/*#pestana_carrera label{
+    text-align: center;
+    text-decoration:none;color:#0000cc;
+    text-decoration:none;color:#ffcc33;
+    text-decoration:none;color:#ff0000;
+    text-decoration:underline;color:#999999;
+}*/
+#link_toolt a{
+}
+#link_toolt a{
+    /*margin: 0 0;*/ 
+    /*margin: 0 0;*/
+    display: block;
+    color: #000000;
+    text-decoration:none; 
+}
+#link_toolt a{
+}
+.link_tooltsangre {
+
+}
+.link_tooltsangre {
+    /*margin: 0 0;*/ 
+    /*margin: 0 0;*/
+    display: block;
+    color: #000000;
+    text-decoration:none; 
+    /*margin: 100px 50px;*/
+}
+#datos_tutor{
+    height: 390px;
+    margin-left: 30px;
+    margin-right: 0;
+    width: 95%   
+}
+#datos_beca{
+    height: 470px;
+    margin-left: 30px;
+    margin-right: 0;
+    width: 95%
+}
+#marco_inicio{
+    margin-left: 10px;
+    margin-right: 70%;
+    border: 2px solid #337ab7; 
+    position: relative;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font: 30px/20px arial;
+    color:#000000;
+    text-align: center;
+}
+
+.boton{ 
+    font-size:12px; 
+    font-family:Verdana,Helvetica; 
+    font-weight:bold; 
+    color:#0000FF; 
+    background:#A4C1FF; 
+    border: 3%; 
+    width:200px; 
+    height:35px; 
+} 
+
+#pasosproceso_externo {
+    border-color: #337ab7;
+    border-style: solid;
+    border-width: 1px;
+    /*height: 990px;*/
+    margin-left: 11%;
+    margin-top: 2%;
+    position: absolute;
+    width: 78%;
+}
+#pasosproceso_nombre {
+    border-color: #337ab7;
+    border-radius: 8.5px;
+    border-style: solid;
+    border-width: 1px;
+    height: 9%;
+    margin-left: 18%;
+    margin-top: 5%;
+    width: 65%;
+    text-align: center;
+}
+#pasosproceso_botones {
+    border-color: #337ab7;
+    border-style: solid;
+    border-width: 1px;
+    margin-left: 77%;
+    margin-top: 5%;
+    width: 12%;
+    text-align: center;
+}
+#pasosproceso_boton {
+    border-color: #337ab7;
+    border-style: solid;
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 10, 0.6), 0 0 200px 1px rgba(255, 255, 255, 0.5);
+    border-width: 1px;
+    margin-left: 30%;
+    margin-top: 5%;
+    width: 45%;
+    height: 50px;
+    text-align: center;
+}
+#pasosproceso_izquierda{
+    float: left;
+    margin: 0% 0%;
+    /*padding: 10px;*/
+    width: 50%;
+}
+#pasosproceso_derecha{
+    float: left;
+    margin: 0% 0%;
+    /*padding: 10px;*/
+    width: 50%;
+}
+#blanco {
+    background-color: white;
+    float: left;
+    margin: 3% 9%;
+    text-align: center;
+    width: 82%;
+}
+#blanco_numeros {
+    background-color: white;
+    float: left;
+    margin: 2.5% 1%;
+    text-align: center;
+    width: 10%;
+    height: 58%;
+}
+#blanco_numeros {
+    color: #ff9900;
+}
+#blanco_texto {
+    background-color: white;
+    float: left;
+    /*height: 59%;*/
+    margin: 2.5% 1%;
+    text-align: center;
+    width: 85%;
+}
+#blanco_texto {
+    color:#ff9900;
+}
+#blanco h4   {
+    color:#ff9900;
+}
+
+.bgimg {
+    background-image: url(Imagenes/fondoLookandfeel.png);
+}
+
+.vacio {
+    background-image: url("../Imagenes/fondoLookandfeel1.PNG");
+    float: left;
+    margin: 13% 7%;
+    text-align: center;
+    width: 86%;
+}
+.imagen_pasos {
+    background-image: url("../Imagenes/fondoLookandfeel1.PNG");
+    box-shadow: 0 5px 15px 1px rgba(0, 0, 10, 0.6), 0 0 200px 1px rgba(255, 255, 255, 0.5);
+    float: left;
+    margin: 3% -148%;
+    overflow: hidden;
+    /*margin:0% 0 0 auto;*/
+    top: 50%;
+    /*margin-top: 8%;*/
+    text-align: center;
+    width: 138%;
+}
+.espacio_descripcion {
+    border-color: #0099ff;
+    border-radius: 8.5px;
+    border-style: solid;
+    border-width: 1px;
+    height: 100%;
+    left: 0;
+    margin: 8% 108%;
+    position: relative;
+    width: 412px;
+    text-align: left;
+}
+.espacio_descripcion li {
+    margin-left: 7%;
+    margin-top: 2%;
+}
+
+#heleido{
+    margin-left: 90px;
+}
+#pop_blanco{
+    border-color: #0099ff;
+    /*border-radius: 8.5px;*/
+    border-style: solid;
+    border-width: 2px;
+    background-color: white;
+}
+#pop_blanco h5{
+    text-align: center;
+    color:#ff9900;
+}
+
+#panel_botones_pop{
+    /*background: #0099FF;*/
+    border-color: #337ab7;
+    border-radius: 8.5px;
+    border-style: solid;
+    border-width: 1px;
+    width: 80%;
+    height: 170%; 
+    margin: 19% auto;
+    margin-top: 15%;
+    border-radius: 8.5px;
+}
+
+#pop_botones {
+    /*    border-color: red;
+        border-radius: 8.5px;*/
+    /*    border-style: solid;
+        border-width: 1px;*/
+    /*color: orange;*/
+    margin-top: 22px;
+    text-align: center;
+}
+
+#Contenido_atencion {
+    border-color: #337ab7;
+    border-radius: 8.5px;
+    border-style: solid;
+    border-width: 1px;
+    /* original
+	height: 175px;*/
+	/* cambios*/
+    height: 220xpx;
+    width: 920px; 
+}
+
+
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*==========================pop_up_curp.css===================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13/10/2014, 12:26:58 PM
+    Author     : Desarrollo de sistem
+*/
+
+#fade_curp{
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index:1001;
+    -moz-opacity: 0.7;
+    opacity:.70;
+    filter: alpha(opacity=70);
+}
+#fade_curp h3{
+    text-align: center;
+}
+#light_curp {
+    background: none repeat scroll 0 0 #0099ff;
+    border: 2px solid #fff;
+    display: none;
+    top: -11%;
+    left: 10%;
+    overflow: visible;
+    padding: 47px;
+    position: absolute;
+    width: 550px;
+    z-index: 1002;
+}
+
+
+
+#menuPrincipal{
+    margin-left: 12%;
+    max-width: 76%;
+    min-width:650px;
+}
+
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*==========================diseño_confirmar_datos.css========================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+
+
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10/07/2014, 11:22:08 AM
+    Author     : ElyyzZ BaRruEtA
+*/
+
+
+
+#contenedor_texto{    
+    margin: 14px;
+    width: 97%; 
+    height: 515px;
+    background:  #fff;
+    font-weight: bold;
+    color:#000;
+    border-radius: 15px;
+}
+
+#contenedor_texto  #area_de_texto fieldset{
+    border: 0px;   
+}
+#area_de_texto{
+    background: #ffffff;
+    border: 5px;
+    width: 94%;
+    height: 55%;
+    margin-left: 30px;
+    color: #000000;
+    border-radius: 15px;
+}
+
+#contenedor_texto #area_de_texto p .etiquetas_derecha{
+
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size: 18px;
+    float: left;
+    width: 30%;
+    text-align:right;
+    padding: 0px;
+}
+#contenedor_texto #area_de_texto p .etiquetas_izquierda{
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size: 18px;
+    float: right;
+    width: 65%;
+    text-align:left;
+    padding: 5px;
+    /*color: #000000;*/
+    /*    color: ;*/
+}
+
+#confirmar , #cancelar{
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size: 100%;
+    margin-left:  25%;
+    width: 100px; 
+    color:#ffffff;
+    background-color: #337ab7;
+    /*background-image:url(close.png);*/
+
+}
+
+h1{
+    min-height: 20px;
+    max-height: 50px; 
+}
+#label_confirmacion{
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0.67em 0;
+    text-align: center;  
+}
+#divatencion{
+    float: left;
+    margin-top: 5px;
+    padding: 5px;
+    width: 80%;
+    margin-left: 195px;
+    min-height: 15px;
+    max-height: 40px;
+}
+
+
+
+
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*==========================estilos_alcance.css===============================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 1/10/2014, 12:17:15 PM
+    Author     : Desarrollo de sistem
+*/
+
+#avance{
+    background:  #337ab7;
+    width: 60%;
+    height: 105px;
+    margin-left: 20%;
+    border-radius: 40px; 
+    margin-top: 1%;
+}
+
+#letrero_pasos{
+    margin-top: -3%;
+    margin-left:  7%;
+    width: 100%;  
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size: 14px;
+    padding: 2%;
+    height: 0%;
+    color: #fff;
+}
+
+#ver_proceso{
+    width: 80px;    
+    margin-top: -1%;
+    /*background: white;*/
+    text-align: center;
+    color:white;
+    font-weight: 800;
+}
+.avances_botones{
+    float: left;
+    width: 30px;
+    height: 30px; 
+    border-radius: 30px;   
+    margin-left: 8%;
+    font-size: 22px;
+    text-align: center;
+}
+#labelenproceso{
+    margin-left: 18%;
+    font-size: 12px;
+    color: white;
+
+}
+
+#botones_pasos{
+    margin-left: 12%;
+
+}
+#paso1{
+    background-color:red;
+    transform-style: preserve-3d;
+    color: orange;
+    font-weight: 800;
+}
+#paso2,
+#paso3, #paso4,
+#paso5, #paso6,
+#paso7, #paso8,
+#paso9, #paso10{
+    background-color: #666666;
+    color: white;
+    font-weight: 800;
+    transform-style: preserve-3d;
+}
+
+
+
+
+
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*=========================pop_up_imagen_ayuda.css============================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+
+
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 16/08/2014, 03:14:25 PM
+    Author     : Chavitta
+*/
+
+#fade_im_pop{
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index:1001;
+    -moz-opacity: 0.7;
+    opacity:.70;
+    filter: alpha(opacity=70);
+}
+#light_imagen_pop {
+    display: none;
+    height: 200px;
+    left: -3%;
+    margin-left: -150px;
+    margin-top: -100px;
+    overflow: visible;
+    padding: 10px;
+    position: absolute;
+    top: -100%;
+    width: 300px;
+    z-index: 1002;
+}
+
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*=========================imagenCorreoPop.css================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+
+
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 7/10/2014, 02:09:05 PM
+    Author     : Desarrollo de sistem
+*/
+
+
+.img_correo_pop {
+    left: 50px;
+    position: absolute;
+    top: 45%;
+}
+
+
+
+
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*=========================zoom.css===========================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24/09/2014, 12:29:14 PM
+    Author     : ElyyzZ BaRruEtA
+*/
+/*
+#content_image {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    background-color: #000000;
+}
+
+@media (min-width: 600px) {
+    #content_image {
+        width: 70%;
+        margin-left: 32%;
+        -webkit-box-shadow: 0 0 20px 0 #999;
+        -moz-box-shadow: 0 0 20px 0 #999;
+    }
+}
+
+.frameAsp {
+    margin-bottom: 20px;
+    margin-left: -60%;
+}
+
+#manual_aspirante { width: 100%; }
+
+#controlsAsp { margin-bottom: 40px; 
+margin-left: -55%;}
+
+#controlsAsp button {
+    margin: 0 5px;
+    min-width: 40px;
+    color: #555;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+#controlsAsp button:hover { color: #333; }
+*/
+
+
+
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*=========================pop_css.css========================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 8/08/2014, 04:30:21 PM
+    Author     : Chavitta
+*/
+
+#fade{
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index:1001;
+    -moz-opacity: 0.7;
+    opacity:.70;
+    filter: alpha(opacity=70);
+}
+#fade h3{
+    text-align: center;
+}
+#import{
+    margin: 10px;
+    margin-bottom: 10px;
+    margin-top: 25px;
+    margin-left: 30px;
+    margin-right: 50px;
+}
+#light {
+    background: none repeat scroll 0 0 #0099ff;
+    border: 2px solid #fff;
+    display: none;
+    top: -11%;
+    left: 10%;
+    overflow: visible;
+    padding: 47px;
+    position: absolute;
+    width: 550px;
+    z-index: 1002;
+}
+
+
+
+
+
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*=========================estilos_principal.css=============================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+/*============================================================================*/
+
+
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 4/07/2014, 12:14:57 PM
+    Author     : ElyyzZ BaRruEtA
+*/
+/*//imagen de header  pagina  principal*/ 
+.header_img{}
+.header_img{
+    text-align: center;
+    width: 100%;
+}
+
+
+/*//Leyenda de derechos reservados*/
+.Derechos_reser{}
+.Derechos_reser{
+    font: 14px/17px serif;
+    color:lightslategray;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/*//Imagen de footer pagina principal*/
+.footer_img{}
+.footer_img{
+    text-align: center;
+}
+
+#prueba
+{
+    position: relative;
+    background-position: 200px 100px;
+
+}
+#prueba{}
+
+#aqui {
+    font-size: 10px;
+    margin-left: 17%;
+    /*margin-right: 20px;*/
+    position: relative;
+    margin-top: -13px;
+}
+#aqui_escuela {
+    font-size: 10px;
+    margin-left: 45%;
+    /*margin-right: 20px;*/
+    position: relative;
+    margin-top: -13px;
+}
+
+#FondoEnvCorreo{
+
+    background:#000;
+    opacity:0.8;
+    position:fixed;
+    top:0; 
+    left:0;
+    height: 100%;
+    width: 100%;
+
+}
+
+#etq_CorreoI{
+    width: 100%;
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size: 110%;
+    float: left;
+    text-align:-moz-center;
+    padding: 5%;
+}
+#InCorreoE{
+    margin-left: 13%;
+    margin-top: 3%;
+    width: 40%;
+}
+#labelVerifica{
+    margin-top: 5%;
+    margin-left: 5%;
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size: 80%;
+}
+
+
+
+
+#combompnacimiento, #combocdnacimiento{
+    margin-top: 1%;
+}
+
+#ListaClave{
+    font-size: 100%;
+}
+#input_cuartos{
+    margin-top: 2%;
+}
+
+
+#RetornoServlet{
+    font-size: 120%;
+    margin-top: 4%;
+    text-align: justify;
+    width: 90%;
+    margin-left: 3%;
+}
+
+#RespuestaServlet{
+    text-align: justify;
+    background: #ffffff;
+    width: 98%;
+    height: 96%; 
+    border-radius: 10px;
+    margin-top: -1%;
+    margin: 1%;
+}
+
+#AceptarRspuesta{
+    width: 20%;
+    margin-left: 40%;
+    margin-top: 15%;
+    background-color: #337ab7;
+    color:white;
+}
+
+
+
+.popup {
+    background-color: #ffffff;
+    color: #888888;
+    height: 330px;
+    left: 100%;
+    padding: 20px;
+    position: fixed;
+    right: 30%;
+    top: 25%;
+    width: 550px;
+    z-index: 101;
+    -moz-box-shadow: 0px 0px 10px 1px #888888;
+    -webkit-box-shadow: 0px 0px 10px 1px #888888;
+    box-shadow: 0px 0px 10px 1px #888888;
+    border-radius:10px;
+    -moz-border-radius:10px;
+}
+
+.overlay {
+    background: #000000;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 100;
+    opacity:0.5;
+}
+
+a.close {
+    background: url("cancel.png") repeat scroll left top transparent;
+    cursor: pointer;
+    float: right;
+    height: 26px;
+    left: 32px;
+    position: relative;
+    top: -33px;
+    width: 26px;
+}
+
+
+#construccion{
+    margin:14% -4% 34% 5%;
+}
+
+#imgCaptchaDiv{
+}
+#imgCaptchaDiv{
+    margin:-3% 0% 0% 36%;
+}
+#txtCampCaptcha{}
+#txtCampCaptcha{
+    margin:4% 0 0 0%;
+}
+
+#etq_vivema{
+    margin-left: 0%;
+}
+#padre_viveSi,
+#padre_viveNo, 
+#madre_viveSi, #madre_viveNo{
+    margin-left: 3%;
+}
+
+
+#contenidoCorreoInicio{
+    min-height: 300px;
+    max-height: 500px;
+    max-width: 1400px;
+    min-width: 900px;
+
+}
+
+#DatosPerAsp{ 
+    alignment-adjust: central;
+}
+
+
+/******
+Mensaje de aviso para pago de fichas
+*******/
+#pagoAviso{
+    /*//background-color:#337ab7;*/
+    color: #db0023;
+    /*//background-color: #ef0000;*/
+    transform-style: preserve-3d;
+}
