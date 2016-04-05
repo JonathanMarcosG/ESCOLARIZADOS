@@ -42,7 +42,7 @@ public class ClaseEnviarCorreo {
      *
      * @param context: Contexto del servlet para integrar las imagenes
      * @param sendTo: Destinatario del correo (aspirante)
-     * @param cuerpo: Cuerp del mensaje
+     * @param cuerpo: Cuerpo del mensaje
      * @param asunto: Asunto del correo 1 -> El primer correo que envia la liga
      * de registro. 2 -> Liga para generar preficha
      * @return: Codigo de error/informacion del envio de correo
@@ -273,35 +273,7 @@ public class ClaseEnviarCorreo {
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
     }
-
-//    /**
-//     * @return the correo
-//     */
-//    public String getCorreo() {
-//        return correo;
-//    }
-//
-//    /**
-//     * @param correo the correo to set
-//     */
-//    public void setCorreo(String correo) {
-//        this.correo = correo;
-//    }
-
-//    /**
-//     * @return the cuerpo
-//     */
-//    public String getCuerpo() {
-//        return cuerpo;
-//    }
-//
-//    /**
-//     * @param cuerpo the cuerpo to set
-//     */
-//    public void setCuerpo(String cuerpo) {
-//        this.cuerpo = cuerpo;
-//    }
-
+    
     /**
      * @return the error
      */
