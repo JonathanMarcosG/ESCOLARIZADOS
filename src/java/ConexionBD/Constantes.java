@@ -24,6 +24,7 @@ public class Constantes {
     
 // Correos
     public final static String MAIL_NOMBRE = "aspirantes@ittoluca.edu.mx";
+    public final static String MAIL_NOMBRE2 = "goodfeeling94@gmail.com";
     public final static String MAIL_HOST = "mail.ittoluca.edu.mx";
     public final static String MAIL_PASS = "11280672";
     public final static String MAIL_PORT = "25";

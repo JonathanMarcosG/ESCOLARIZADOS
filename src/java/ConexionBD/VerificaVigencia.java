@@ -52,15 +52,15 @@ public class VerificaVigencia {
 
             if ("0".equals(resultado_error)) {
                 fi = cst.getString("paFechaInicio");
-                
+                System.out.println("Fecha Inicio "+fi);
                 ff = cst.getString("paFechaFin");
-                
+                System.out.println("Fecha Fin "+ff);
                 fh = cst.getString("paFechaActual");
-                
+                System.out.println("Fecha de Hoy "+fh);
 
                 //cambios para pruebas
                 //fi = "10/08/2015";
-                //ff = "/09/2015";
+//                ff = "31/04/2016";
                 //fh = "10/08/2015";
                 if (fi == null || ff == null || ff == null) {
                     val_per = "1 & No hay fechas disponibles para la convocatoria";

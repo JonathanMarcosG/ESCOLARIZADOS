@@ -50,7 +50,8 @@ public class ClaseEnviarCorreo {
      */
     public int sendMail(ServletContext context, String sendTo, String cuerpo, String asunto) throws Exception {
         int retorno = 0;
-        addContent(formato(context, cuerpo));
+        addContent(formato(cuerpo));
+        addImagen(context);
 
         Session session = Session.getDefaultInstance(propiedades());
         MimeMessage message = new MimeMessage(session);
@@ -60,10 +61,9 @@ public class ClaseEnviarCorreo {
             InternetAddress toAddress = new InternetAddress(sendTo);
 
             message.addRecipient(Message.RecipientType.TO, toAddress);
-
             message.setSubject(asunto);
-            
             message.setContent(multipart);
+
             Transport transport = session.getTransport("smtp");
             transport.connect(Constantes.MAIL_HOST, origen, contrasenia);
             try {
@@ -89,8 +89,9 @@ public class ClaseEnviarCorreo {
 
     public boolean sendMailFin(ServletContext context, String sendTo, String cuerpo, String asunto) throws Exception {
         boolean retorno = false;
-        
-        addContent(formato(context, cuerpo));
+
+        addContent(formato(cuerpo));
+        addImagen(context);
 
         Session session = Session.getDefaultInstance(propiedades());
         MimeMessage message = new MimeMessage(session);
@@ -109,7 +110,6 @@ public class ClaseEnviarCorreo {
             try {
 
                 transport.sendMessage(message, message.getAllRecipients());
-
                 transport.close();
                 retorno = true;
             } catch (MessagingException ex) {
@@ -127,44 +127,33 @@ public class ClaseEnviarCorreo {
         return retorno;
     }
 
-    public boolean sendMailContacto(BMail beanMail, String to, boolean link, String asunto) {
+    public boolean sendMailContacto(ServletContext context, BMail beanMail, String to, boolean link, String asunto) throws Exception {
         boolean retorno = false;
+        addContent(formato(beanMail.getCuerpo()));
+        addImagen(context);
         Session session = Session.getDefaultInstance(propiedades());
         MimeMessage message = new MimeMessage(session);
         try {
-            message.setFrom(new InternetAddress(Constantes.MAIL_NOMBRE));
-            InternetAddress toAddress = new InternetAddress(Constantes.MAIL_NOMBRE);
+//            message.setFrom(new InternetAddress(Constantes.MAIL_NOMBRE));
+//            InternetAddress toAddress = new InternetAddress(Constantes.MAIL_NOMBRE);
+
+            message.setFrom(new InternetAddress(origen));
+            InternetAddress toAddress = new InternetAddress(to);
 
             message.addRecipient(Message.RecipientType.TO, toAddress);
 
             message.setSubject(asunto);
-            message.setText("Cuerpo");
+            message.setContent(multipart);
 
-            if (link == true) {
-                message.setText(beanMail.getCuerpo(), "ISO-8859-1", "html");
-            } else {
-
-                String nom = beanMail.getNombre();
-                String corr = beanMail.getCorreo();
-                String mens = beanMail.getTexto();
-
-                String mensaje = "Enviando un correo\n\n"
-                        + "Nombre: " + nom + "\n"
-                        + "Correo: " + corr + "\n\n"
-                        + "Mensaje:\n" + mens + "\n";
-
-                message.setText(mensaje);
-
-            }
             Transport transport = session.getTransport("smtp");
-            transport.connect(Constantes.MAIL_HOST, Constantes.MAIL_NOMBRE, Constantes.MAIL_PASS);
+            transport.connect(Constantes.MAIL_HOST, origen, contrasenia);
 
             try {
                 transport.sendMessage(message, message.getAllRecipients());
                 transport.close();
                 retorno = true;
             } catch (MessagingException ex) {
-                
+
                 retorno = false;
             }
         } catch (MessagingException me) {
@@ -172,10 +161,12 @@ public class ClaseEnviarCorreo {
             retorno = false;
         }
         return retorno;
-        
+
     }
+
     public Properties propiedades() {
         Properties props = System.getProperties();
+//        Properties props =new Properties();
         props.setProperty("mail.mime.charset", "ISO-8859-1");
 
         props.put("mail.smtp.starttls.enable", "true");
@@ -192,17 +183,10 @@ public class ClaseEnviarCorreo {
         return props;
     }
 
-    public String formato(ServletContext context, String cuerpo) throws Exception {
+    public String formato(String cuerpo) throws Exception {
 
-        String url_cab = "/Imagenes/header_ittoluca.png";
-        String cab_img = context.getRealPath(url_cab);
-        String url_pie = "/Imagenes/footer_ittoluca.png";
-        String pie_img = context.getRealPath(url_pie);
-
-        addCID("cidcabecera", cab_img);
-        addCID("cidpie", pie_img);
         String content;
-        
+
         String cabecera = "<html>\n"
                 + "    <head>\n"
                 + "      \n"
@@ -210,7 +194,7 @@ public class ClaseEnviarCorreo {
                 + "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
                 + "    </head>\n"
                 + "    <header style=\"position: relative;left:80px;\">\n"
-                + "        <img src=\"cid:cidcabecera\" />\n"
+                + "        <img src=\"cid:cidcabecera\">\n"
                 + "        <pre style=\"font-family:'calibri'; font-size: 16px;\">\n"
                 + "            Instituto Tecnológico de Toluca\n"
                 + "\n"
@@ -223,11 +207,22 @@ public class ClaseEnviarCorreo {
 
         String pie = " </body>\n"
                 + "    <footer  style=\"position: relative;\" >\n"
-                + "         <img src=\"cid:cidpie\" />\n"
+                + "         <img src=\"cid:cidpie\">\n"
                 + "    </footer>\n"
                 + "</html>";
+        content = String.format("%s%s%s%s%s", cabecera, "<br/>", cuerpo, "<br/>", pie);
 
-        return content = String.format("%s%s%s%s%s", cabecera, "<br/>", cuerpo, "<br/>", pie);
+        return content;
+    }
+
+    public void addImagen(ServletContext context) throws Exception {
+
+        String url_cab = "/Imagenes/header_ittoluca.png";
+        String cab_img = context.getRealPath(url_cab);
+        String url_pie = "/Imagenes/footer_ittoluca.png";
+        String pie_img = context.getRealPath(url_pie);
+        addCID("cidcabecera", cab_img);
+        addCID("cidpie", pie_img);
     }
 
     public void addContent(String htmlText) throws Exception {
@@ -273,7 +268,7 @@ public class ClaseEnviarCorreo {
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
     }
-    
+
     /**
      * @return the error
      */
