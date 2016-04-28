@@ -5,28 +5,27 @@
  */
 package modelos;
 
-import beans.BaseDatos;
+import beans.Spinner;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.StringTokenizer;
 
-
 /**
  *
  * @author ElyyzZ BaRruEtA
  */
-public class llenarBD {
+public class llenarSpinner {
 
-    public List<BaseDatos> llenaPromedio() {
-        List<BaseDatos> promedio = new ArrayList<>();
-        BaseDatos b;
-        b = new BaseDatos();
+    //Obtenemos el promedio para los combos
+    public List<Spinner> llenaPromedio() {
+        List<Spinner> promedio = new ArrayList<>();
+        Spinner b = new Spinner();
         b.setClave("--");
         b.setNombre("--Seleccione--");
         promedio.add(b);
         for (int i = 60; i <= 100; i++) {
-            b = new BaseDatos();
+            b = new Spinner();
             b.setClave(String.valueOf(i));
             b.setNombre(String.valueOf(i));
             promedio.add(b);
@@ -34,16 +33,16 @@ public class llenarBD {
         return promedio;
     }
 
-   
-    public List<BaseDatos> llenaNumero() {
-        List<BaseDatos> num = new ArrayList<>();
-        BaseDatos b;
-        b = new BaseDatos();
+    //Obtenemos el promedio para los combos
+    public List<Spinner> llenaNumero() {
+        List<Spinner> num = new ArrayList<>();
+        Spinner b;
+        b = new Spinner();
         b.setClave("--");
         b.setNombre("--Seleccione--");
         num.add(b);
         for (int i = 1; i < 10; i++) {
-            b = new BaseDatos();
+            b = new Spinner();
             b.setClave(String.valueOf(i));
             b.setNombre(String.valueOf(i));
             num.add(b);
@@ -51,26 +50,29 @@ public class llenarBD {
         return num;
     }
 
-    public ArrayList <String> Formatea(String dats) {
-     ArrayList <String> Datos = new  ArrayList<>();
-       int i=0;
+    public ArrayList<String> Formatea(String dats) {
+        ArrayList<String> Datos = new ArrayList<>();
+        int i = 0;
         StringTokenizer cad = new StringTokenizer(dats, "||", false);
         while (cad.hasMoreTokens()) {
             String h;
-                    h=cad.nextToken();
-            Datos.add(h);          
-        }        
-           return Datos;
+            h = cad.nextToken();
+            System.out.println(h);
+            Datos.add(h);
+            i++;
+        }
+        System.out.println("El tama;o del array es: "+i);
+        return Datos;
     }
 
-    public List<BaseDatos> llenames() {
-        List<BaseDatos> mes = new ArrayList<>();
+    public List<Spinner> llenames() {
+        List<Spinner> mes = new ArrayList<>();
         int i = 0;
         while (i < 13) {
 
             switch (i) {
                 case 0: {
-                    BaseDatos f = new BaseDatos();
+                    Spinner f = new Spinner();
                     f.setClave("--");
                     f.setNombre("--");
                     mes.add(f);
@@ -78,7 +80,7 @@ public class llenarBD {
                 }
                 break;
                 case 1: {
-                    BaseDatos f = new BaseDatos();
+                    Spinner f = new Spinner();
                     f.setClave("01");
                     f.setNombre("Ene");
                     mes.add(f);
@@ -86,7 +88,7 @@ public class llenarBD {
                 }
                 break;
                 case 2: {
-                    BaseDatos f = new BaseDatos();
+                    Spinner f = new Spinner();
                     f.setClave("02");
                     f.setNombre("Feb");
                     mes.add(f);
@@ -94,7 +96,7 @@ public class llenarBD {
                 }
                 break;
                 case 3: {
-                    BaseDatos f = new BaseDatos();
+                    Spinner f = new Spinner();
                     f.setClave("03");
                     f.setNombre("Mar");
                     mes.add(f);
@@ -102,7 +104,7 @@ public class llenarBD {
                 }
                 break;
                 case 4: {
-                    BaseDatos f = new BaseDatos();
+                    Spinner f = new Spinner();
                     f.setClave("04");
                     f.setNombre("Abr");
                     mes.add(f);
@@ -110,7 +112,7 @@ public class llenarBD {
                 }
                 break;
                 case 5: {
-                    BaseDatos f = new BaseDatos();
+                    Spinner f = new Spinner();
                     f.setClave("05");
                     f.setNombre("May");
                     mes.add(f);
@@ -118,7 +120,7 @@ public class llenarBD {
                 }
                 break;
                 case 6: {
-                    BaseDatos f = new BaseDatos();
+                    Spinner f = new Spinner();
                     f.setClave("06");
                     f.setNombre("Jun");
                     mes.add(f);
@@ -126,7 +128,7 @@ public class llenarBD {
                 }
                 break;
                 case 7: {
-                    BaseDatos f = new BaseDatos();
+                    Spinner f = new Spinner();
                     f.setClave("07");
                     f.setNombre("Jul");
                     mes.add(f);
@@ -134,7 +136,7 @@ public class llenarBD {
                 }
                 break;
                 case 8: {
-                    BaseDatos f = new BaseDatos();
+                    Spinner f = new Spinner();
                     f.setClave("08");
                     f.setNombre("Ago");
                     mes.add(f);
@@ -142,7 +144,7 @@ public class llenarBD {
                 }
                 break;
                 case 9: {
-                    BaseDatos f = new BaseDatos();
+                    Spinner f = new Spinner();
                     f.setClave("09");
                     f.setNombre("Sep");
                     mes.add(f);
@@ -150,7 +152,7 @@ public class llenarBD {
                 }
                 break;
                 case 10: {
-                    BaseDatos f = new BaseDatos();
+                    Spinner f = new Spinner();
                     f.setClave("10");
                     f.setNombre("Oct");
                     mes.add(f);
@@ -158,7 +160,7 @@ public class llenarBD {
                 }
                 break;
                 case 11: {
-                    BaseDatos f = new BaseDatos();
+                    Spinner f = new Spinner();
                     f.setClave("11");
                     f.setNombre("Nov");
                     mes.add(f);
@@ -166,7 +168,7 @@ public class llenarBD {
                 }
                 break;
                 case 12: {
-                    BaseDatos f = new BaseDatos();
+                    Spinner f = new Spinner();
                     f.setClave("12");
                     f.setNombre("Dic");
                     mes.add(f);
@@ -177,49 +179,46 @@ public class llenarBD {
             }
 
         }
-       
+
         return mes;
     }
 
-    public List<BaseDatos> llenadia() {
-        List<BaseDatos> dia = new ArrayList<>();
+    public List<Spinner> llenadia() {
+        List<Spinner> dia = new ArrayList<>();
         for (int i = 0; i < 32; i++) {
             if (i == 0) {
-                BaseDatos f = new BaseDatos();
+                Spinner f = new Spinner();
                 f.setClave("--");
                 f.setNombre("--");
                 dia.add(f);
 
-            } else {
-                
-                if(i<10){
-                 BaseDatos f = new BaseDatos();
-                f.setClave("0"+String.valueOf(i));
+            } else if (i < 10) {
+                Spinner f = new Spinner();
+                f.setClave("0" + String.valueOf(i));
                 f.setNombre(String.valueOf(i));
                 dia.add(f);
-                }else{
-                BaseDatos f = new BaseDatos();
+            } else {
+                Spinner f = new Spinner();
                 f.setClave(String.valueOf(i));
                 f.setNombre(String.valueOf(i));
-                dia.add(f);}
+                dia.add(f);
             }
         }
         return dia;
     }
 
-    public List<BaseDatos> llenaaño() {
-        List<BaseDatos> anio = new ArrayList<>();
+    public List<Spinner> llenaaño() {
+        List<Spinner> anio = new ArrayList<>();
         //Obtenemos el año actual para lso combos
         Calendar date = Calendar.getInstance();
-        //for (int i = 1924; i <= 2015; i++) {
         for (int i = 1924; i <= date.get(Calendar.YEAR); i++) {
             if (i == 1924) {
-                BaseDatos f = new BaseDatos();
+                Spinner f = new Spinner();
                 f.setClave("--");
                 f.setNombre("--");
                 anio.add(f);
             } else {
-                BaseDatos f = new BaseDatos();
+                Spinner f = new Spinner();
                 f.setClave(String.valueOf(i));
                 f.setNombre(String.valueOf(i));
                 anio.add(f);
@@ -227,71 +226,4 @@ public class llenarBD {
         }
         return anio;
     }
-
-    public List<BaseDatos> llenapromedio() {
-        List<BaseDatos> prom = new ArrayList<>();
-        for (int i = 59; i < 101; i++) {
-            if (i == 59) {
-                BaseDatos f = new BaseDatos();
-                f.setClave("0");
-                f.setNombre("--");
-                prom.add(f);
-            } else {
-                BaseDatos f = new BaseDatos();
-                f.setClave(String.valueOf(i));
-                f.setNombre(String.valueOf(i));
-                prom.add(f);
-            }
-        }
-        return prom;
-    }
-     public List<BaseDatos> llenaCarrera() {
-        List<BaseDatos> Carrera = new ArrayList<>();
-        BaseDatos bd;
-        bd = new BaseDatos();
-        bd.setClave("--");
-        bd.setNombre("--Seleccione--");
-        Carrera.add(bd);
-        bd = new BaseDatos();
-        bd.setClave("1");
-        bd.setNombre("Ingeniería Electrónica");
-        Carrera.add(bd);
-        bd = new BaseDatos();
-        bd.setClave("2");
-        bd.setNombre("Ingeniería Electromecánica");
-        Carrera.add(bd);
-        bd = new BaseDatos();
-        bd.setClave("3");
-        bd.setNombre("Ingeniería Industrial");
-        Carrera.add(bd);
-        bd = new BaseDatos();
-        bd.setClave("4");
-        bd.setNombre("Ingeniería Química");
-        Carrera.add(bd);
-        bd = new BaseDatos();
-        bd.setClave("5");
-        bd.setNombre("Ingeniería en Sistemas Computacionales");
-        Carrera.add(bd);
-        bd = new BaseDatos();
-        bd.setClave("6");
-        bd.setNombre("Ingeniería Mecatrónica");
-        Carrera.add(bd);
-        bd = new BaseDatos();
-        bd.setClave("7");
-        bd.setNombre("Ingeniería en Gestión Empresarial");
-        Carrera.add(bd);
-        bd = new BaseDatos();
-        bd.setClave("8");
-        bd.setNombre("Ingeniería Industrial a Distancia");
-        Carrera.add(bd);
-        return Carrera;
-    }
-     
-     /*public static void main(String[] args) {
-         llenarBD bd = new llenarBD();
-         
-        for (BaseDatos llenaaño : bd.llenaaño()) {
-        }
-         
-    }*/
 }

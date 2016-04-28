@@ -5,20 +5,18 @@
  */
 package servlets;
 
-import ConexionBD.Procedimientos;
-import beans.BaseDatos;
+import ConexionBD.Constantes;
+import DAO.CatalogosDAO;
+import beans.Spinner;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelos.Encripta;
-import modelos.llenarBD;
+import modelos.llenarSpinner;
 
 /**
  * Carga al dar clic en el enlace que se envia al correo del aspirante
@@ -29,24 +27,25 @@ public class DatosAspiranteServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    llenarBD bd = new llenarBD();
-    List<BaseDatos> dia = bd.llenadia();
-    List<BaseDatos> mes = bd.llenames();
-    List<BaseDatos> anio = bd.llenaaño();
-    List<BaseDatos> EdoCivil;
-    List<BaseDatos> Discapacidad;
-    List<BaseDatos> Escuela;
-    List<BaseDatos> sangre;
-    List<BaseDatos> pais;
-    List<BaseDatos> estado;
-    List<BaseDatos> promedio = bd.llenaPromedio();
-
-    List<BaseDatos> opciones;
-    BaseDatos catalogo = new BaseDatos();
-    List<BaseDatos> opciones1;
-    List<BaseDatos> opciones2;
-    List<BaseDatos> opciones3;
+    llenarSpinner bd = new llenarSpinner();
     Encripta en = new Encripta();
+    Spinner catalogo = new Spinner();
+    
+    List<Spinner> dia = bd.llenadia();
+    List<Spinner> mes = bd.llenames();
+    List<Spinner> anio = bd.llenaaño();
+    List<Spinner> promedio = bd.llenaPromedio();
+    List<Spinner> EdoCivil;
+    List<Spinner> Discapacidad;
+    List<Spinner> Escuela;
+    List<Spinner> sangre;
+    List<Spinner> pais;
+    List<Spinner> estado;
+
+    List<Spinner> opciones;
+    List<Spinner> opciones1;
+    List<Spinner> opciones2;
+    List<Spinner> opciones3;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -59,26 +58,20 @@ public class DatosAspiranteServlet extends HttpServlet {
 
         String Email = request.getParameter("correo");
         Email = en.decrypt(Email);
-        Procedimientos p = new Procedimientos();
-        try {
-            pais = p.getCatalogos(1, 0);
-            pais = catalogo.AgregaS(pais);
-            estado = p.getCatalogos(2, 0);
-            estado = catalogo.AgregaS(estado);
-            Escuela = p.getCatalogos(8, 0);
-            Escuela = catalogo.AgregaS(Escuela);
-            opciones = p.getCatalogos(10, 0);
-            opciones = catalogo.AgregaS(opciones);
-            sangre = p.getCatalogos(11, 0);
-            sangre = catalogo.AgregaS(sangre);
-            EdoCivil = p.getCatalogos(12, 0);
-            EdoCivil = catalogo.AgregaS(EdoCivil);
-            Discapacidad = p.getCatalogos(13, 0);
-            Discapacidad = catalogo.AgregaS(Discapacidad);
-
-        } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(DatosAspiranteServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        pais = CatalogosDAO.getCatalogos(Constantes.BD_NAME,Constantes.BD_PASS,1, 0);
+        pais = catalogo.AgregaS(pais);
+        estado = CatalogosDAO.getCatalogos(Constantes.BD_NAME,Constantes.BD_PASS,2, 0);
+        estado = catalogo.AgregaS(estado);
+        Escuela = CatalogosDAO.getCatalogos(Constantes.BD_NAME,Constantes.BD_PASS,8, 0);
+        Escuela = catalogo.AgregaS(Escuela);
+        opciones = CatalogosDAO.getCatalogos(Constantes.BD_NAME,Constantes.BD_PASS,10, 0);
+        opciones = catalogo.AgregaS(opciones);
+        sangre = CatalogosDAO.getCatalogos(Constantes.BD_NAME,Constantes.BD_PASS,11, 0);
+        sangre = catalogo.AgregaS(sangre);
+        EdoCivil = CatalogosDAO.getCatalogos(Constantes.BD_NAME,Constantes.BD_PASS,12, 0);
+        EdoCivil = catalogo.AgregaS(EdoCivil);
+        Discapacidad = CatalogosDAO.getCatalogos(Constantes.BD_NAME,Constantes.BD_PASS,13, 0);
+        Discapacidad = catalogo.AgregaS(Discapacidad);
         opciones1 = opciones;
         opciones2 = opciones;
         opciones3 = opciones;

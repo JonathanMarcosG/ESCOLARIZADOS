@@ -5,8 +5,9 @@
  */
 package servlets;
 
+import ConexionBD.Constantes;
 import ConexionBD.CreatePreficha2;
-import ConexionBD.VerificaVigencia;
+import DAO.VerificarDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -31,11 +32,10 @@ public class ValidaRenovar extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String curp = request.getParameter("curpR");//.getBytes("ISO-8859-1"), "UTF-8");
-        VerificaVigencia ver = new VerificaVigencia();
 
         
         String[] resValidoRenov;
-        resValidoRenov = ver.getValidoRenovar(curp).split("&");
+        resValidoRenov = VerificarDAO.getValidoRenovar(Constantes.BD_NAME,Constantes.BD_PASS,curp).split("&");
         int valido = -1;
 
         CreatePreficha2 preficha = new CreatePreficha2();

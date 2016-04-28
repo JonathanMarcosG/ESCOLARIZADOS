@@ -6,7 +6,7 @@
 package servlets;
 
 import ConexionBD.Constantes;
-import ConexionBD.Procedimientos;
+import DAO.ValidacionesDAO;
 import beans.BMail;
 import beans.FechaRenovar;
 import java.io.IOException;
@@ -45,7 +45,7 @@ public class EnviaEmailInicio extends HttpServlet {
             String correo = request.getParameter("correo");
 
             PrintWriter out = response.getWriter();
-            Procedimientos p = new Procedimientos();
+//            Procedimientos p = new Procedimientos();
             
             String CorreoEnc = e.encryptURL(correo);
             String Url=Constantes.URL;
@@ -54,11 +54,11 @@ public class EnviaEmailInicio extends HttpServlet {
 
             //Obtenemos la cadena compuesta de la verificacion del correo 
             //  y la transformamos a vector
-            String[] cadExiste = p.GetValidaCorreo(correo, UrlEnc).split("&");
+            String[] cadExiste = ValidacionesDAO.GetValidaCorreo(Constantes.BD_NAME,Constantes.BD_PASS,correo, UrlEnc).split("&");
             int existe = Integer.parseInt(cadExiste[0]);
             String msg = cadExiste[1].trim();
             
-            existe=0;
+//            existe=0;
             
             switch (existe) {
 
@@ -66,6 +66,7 @@ public class EnviaEmailInicio extends HttpServlet {
                     BMail beanMail = new CuerpoCorreos().inicioRegistro(Constantes.APP_HOME, liga);
 
                     ClaseEnviarCorreo cec = new ClaseEnviarCorreo();
+                    System.out.println("el correo a enviar es:¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿"+correo);
                     int ret = cec.sendMail(getServletContext(), correo, beanMail.getCuerpo(), Constantes.MAIL_ASUNTO_REGISTRO);
                     switch (ret) {
 

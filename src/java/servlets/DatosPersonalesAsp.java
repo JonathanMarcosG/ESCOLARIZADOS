@@ -1,6 +1,7 @@
 package servlets;
 
-import ConexionBD.Procedimientos;
+import ConexionBD.Constantes;
+import DAO.ValidacionesDAO;
 import beans.DomicilioAspirante;
 import beans.EscProcedenciaAsp;
 import beans.PersonalesAspirante;
@@ -11,7 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelos.llenarBD;
+import modelos.llenarSpinner;
 
 /**
  * 1.-Setea beans de Datos personales de Aspirante y valida curp y correo 3.-
@@ -30,8 +31,8 @@ public class DatosPersonalesAsp extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    Procedimientos p = new Procedimientos();
-    llenarBD b = new llenarBD();
+//    Procedimientos p = new Procedimientos();
+    llenarSpinner b = new llenarSpinner();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -54,7 +55,7 @@ public class DatosPersonalesAsp extends HttpServlet {
                 String op2 = request.getParameter("op2carre");
                 String op3 = request.getParameter("op3carre");
                 
-                boolean continua = false;
+//                boolean continua = false;
 
                 String ret = "";
                 String datos = request.getParameter("TodNulos");
@@ -101,7 +102,7 @@ public class DatosPersonalesAsp extends HttpServlet {
                         
                         ret = "3";
                     } else {
-                        int existeCurp = p.GetValidaCurp(CurpAsp, correoAsp);
+                        int existeCurp = ValidacionesDAO.GetValidaCurp(Constantes.BD_NAME,Constantes.BD_PASS,CurpAsp, correoAsp);
                         if (existeCurp == 0) {
                             ret = "0";
                         }

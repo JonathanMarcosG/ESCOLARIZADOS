@@ -5,13 +5,14 @@
  */
 package servlets;
 
+import ConexionBD.Constantes;
+import DAO.VerificarDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelos.VerificaCupo;
 
 /**
  *
@@ -33,8 +34,7 @@ public class CapPrefichas extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
          //Retorno de procedimiento 
-        VerificaCupo c = new VerificaCupo();
-        String[] retorno = c.getCupo().split("&");
+        String[] retorno = VerificarDAO.getCupo(Constantes.BD_NAME,Constantes.BD_PASS).split("&");
         String answer = "";
         int cod = Integer.parseInt(retorno[0]);
         

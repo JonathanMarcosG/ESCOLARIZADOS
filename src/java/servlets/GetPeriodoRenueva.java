@@ -5,14 +5,12 @@
  */
 package servlets;
 
-import ConexionBD.VerificaVigencia;
+import ConexionBD.Constantes;
+import DAO.VerificarDAO;
 import beans.FechaRenovar;
 import com.google.gson.Gson;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,18 +35,11 @@ public class GetPeriodoRenueva extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            VerificaVigencia p = new VerificaVigencia();
-
-            fechaList = p.getPeriodoRenovacion();
-
-            String json = new Gson().toJson(fechaList);
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
-            response.getWriter().write(json);
-        } catch (SQLException ex) {
-            Logger.getLogger(CargaCatalogoServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        fechaList = VerificarDAO.getPeriodoRenovacion(Constantes.BD_NAME,Constantes.BD_PASS);
+        String json = new Gson().toJson(fechaList);
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write(json);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

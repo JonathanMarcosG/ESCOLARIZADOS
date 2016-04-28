@@ -25,6 +25,7 @@
         <link rel="stylesheet" href="Estilos/css/bootstrap-theme.min.css.css" type="text/css">
         <link rel="stylesheet" href="Estilos/PAES_css.css" media="all" type="text/css">
         <link rel="stylesheet" href="Estilos/css/table_date.css" type="text/css"/>
+        
         <script type="text/javascript">
             Shadowbox.init({
                 language: "es",
@@ -66,7 +67,7 @@
                                     <a id="recPreficha" class="dropdown-toggle" data-toggle="dropdown" 
                                        role="button" aria-expanded="false" 
                                        style="text-decoration:none;cursor: pointer;font-size:15px" 
-                                       rel="shadowbox;" href="${pageContext.request.contextPath}/manualAspirante" 
+                                       rel="shadowbox;" href="${pageContext.request.contextPath}/ManualAspirante" 
                                        target="_blank"  >
                                         Pasos del proceso para el registro del aspirante.</a>
                                 </li> 

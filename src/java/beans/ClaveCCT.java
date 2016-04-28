@@ -77,6 +77,7 @@ public class ClaveCCT {
     public void setDomicilio(String Domicilio) {
         this.Domicilio = Domicilio;
     }
+    
     public ArrayList  <ClaveCCT>  ConResultSet(ResultSet rs){
           ArrayList  <ClaveCCT> claves = null;
         try {

@@ -511,7 +511,7 @@ public class CreatePreficha2 {
                 ob.crea_archivo(resultado_error, "No se logró crear la preficha", "Error al generar la Preficha.");
                 
             }
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(servlets.PrefichaPDF.class.getName()).log(Level.SEVERE, null, ex);
             prefichaTmp.setExiste(0);
         }

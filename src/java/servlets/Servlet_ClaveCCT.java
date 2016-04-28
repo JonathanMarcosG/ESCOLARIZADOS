@@ -5,7 +5,8 @@
  */
 package servlets;
 
-import ConexionBD.Procedimientos;
+import ConexionBD.Constantes;
+import DAO.CatalogosDAO;
 import beans.ClaveCCT;
 import com.google.gson.Gson;
 import java.io.IOException;
@@ -31,14 +32,11 @@ public class Servlet_ClaveCCT extends HttpServlet {
     List<ClaveCCT> ClaveCCT;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Procedimientos p = new Procedimientos();
         String opc = request.getParameter("estado");
         int pk = Integer.parseInt(opc);
         try {
-            ClaveCCT = p.getClaveCCT(pk);
-        } catch (SQLException ex) {
-            Logger.getLogger(Servlet_ClaveCCT.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+            ClaveCCT = CatalogosDAO.getClaveCCT(Constantes.BD_NAME,Constantes.BD_PASS,7,pk);
+        } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(Servlet_ClaveCCT.class.getName()).log(Level.SEVERE, null, ex);
         } 
         String json = null;

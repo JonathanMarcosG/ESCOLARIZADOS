@@ -39,4 +39,7 @@ public class Constantes {
     public static final String BD_NAME = "ASPIRANTE_ITT";
     public static final String BD_PASS = "ASP1R4NT3";
     
+//Nombre de modulo y aplicación
+    public static final String NOMBRE_APP = "REGISTRO ASPIRANTE ESCOLARIZADO";
+    public static final String NOMBRE_MODULO = "ALTA ASPIRANTE";
 }

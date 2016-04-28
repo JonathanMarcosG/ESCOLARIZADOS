@@ -1411,7 +1411,7 @@ $(document).ready(function () {
                                     , op1carre: op1carre, op2carre: op2carre, op3carre: op3carre, zipCode: codPostal, periodoEsc: periodoEsc},
                                 function (data) {
                                     //alert("info del servlet: data = " + data);
-                                    if (data == 0) {
+                                    if (data==0) {
                                         ConfirmaDatos();
                                         //alert("Termina confirmaDatos con data=" + data +"\n intentando modal de confirmacion");
                                         //$('#div_fondomarco').show();

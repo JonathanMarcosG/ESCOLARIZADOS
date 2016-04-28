@@ -5,11 +5,10 @@
  */
 package servlets;
 
-import ConexionBD.Conexion;
 import ConexionBD.Constantes;
-import ConexionBD.VerificaVigencia;
+import DAO.InsercionesDAO;
 import beans.BMail;
-import beans.BaseDatos;
+import beans.Spinner;
 import beans.ContactoEmeAsp;
 import beans.DomicilioAspirante;
 import beans.EscProcedenciaAsp;
@@ -17,7 +16,6 @@ import beans.PersonalesAspirante;
 import beans.SocioeconomicosAsp;
 import com.google.gson.Gson;
 import java.io.IOException;
-import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,9 +29,7 @@ import modelos.ClaseEnviarCorreo;
 import modelos.CuerpoCorreos;
 import modelos.Encripta;
 import modelos.GeneraAuditoria;
-import modelos.llenarBD;
-import oracle.jdbc.driver.OracleTypes;
-
+import modelos.llenarSpinner;
 /**
  *
  * @author Desarrollo de sistem
@@ -53,7 +49,7 @@ public class InsertandoDatos extends HttpServlet {
         try {
             response.setContentType("text/html;charset=ISO-8859-1");
             request.setCharacterEncoding("UTF8");
-            llenarBD b = new llenarBD();
+            llenarSpinner b = new llenarSpinner();
             PersonalesAspirante aspirant = (PersonalesAspirante) request.getSession().getAttribute("aspirante");
             EscProcedenciaAsp AspEsc = (EscProcedenciaAsp) request.getSession().getAttribute("AspEscuela");
             DomicilioAspirante AspDom = (DomicilioAspirante) request.getSession().getAttribute("AspDomicilio");
@@ -92,8 +88,8 @@ public class InsertandoDatos extends HttpServlet {
                 request.getSession().setAttribute("contacto", contacto);
                 //request.getSession().invalidate();
             } else {
-                List<BaseDatos> RespuestaInsert = new ArrayList<>();
-                BaseDatos bd = new BaseDatos();
+                List<Spinner> RespuestaInsert = new ArrayList<>();
+                Spinner bd = new Spinner();
                 bd.setNombre("Los  teléfonos deben ser distintos de  cero.");
                 bd.setClave("5");
                 RespuestaInsert.add(bd);
@@ -163,131 +159,23 @@ public class InsertandoDatos extends HttpServlet {
 
     //private void InsertaDatosGeneral(HttpServletResponse response, SocioeconomicosAsp AspSocioecono, ContactoEmeAsp contacto, PersonalesAspirante aspirante, DomicilioAspirante AspDomicilio, EscProcedenciaAsp AspEscuela) throws ClassNotFoundException, SQLException, Exception {
     private void InsertaDatosGeneral(HttpServletRequest request, HttpServletResponse response, SocioeconomicosAsp AspSocioecono, ContactoEmeAsp contacto, PersonalesAspirante aspirante, DomicilioAspirante AspDomicilio, EscProcedenciaAsp AspEscuela) throws ClassNotFoundException, SQLException, Exception {
+        
+        
         String error = "Ocurrio Error";
         int Resultado = 20;
+        
+        String[] insertar=InsercionesDAO.InsertaDatosGeneral(Constantes.BD_NAME,Constantes.BD_PASS,AspSocioecono,contacto,
+                aspirante,AspDomicilio,AspEscuela).split("&");
+        
+        Resultado=Integer.parseInt(insertar[0]);
+        error=insertar[1].trim();
 
         try {
-            Conexion con = new Conexion();
+//            Conexion con = new Conexion();
 
             Encripta e = new Encripta();
-            List<BaseDatos> RespuestaInsert = new ArrayList<>();
-            BaseDatos bd;
-
-            try {
-                CallableStatement cs = null;
-                cs = con.getConnection().prepareCall(" {call FICHAS.PQ_INSERT_ASPIRANTE_3.SET_INSERCION_GENERAL_ASP_SP(?,?,?,?,?,?,?,?,?,?,"
-                        + "?,?,?,?,?,?,?,?,?,?,?,"
-                        + "?,?,?,?,?,?,?,?,?,?,"
-                        + "?,?,?,?,?,?,?,?,?,?,"
-                        + "?,?,?,?,?,?,?,?,?,?,"
-                        + "?,?,?,?,?,?,?,?,?,?,"
-                        + "?,?,?,?,?,?,?)}");
-                //personales
-                cs.setString("paCurp", aspirante.getCurp());
-                cs.setString("paNombre", aspirante.getNombre());
-                cs.setString("paApellidoPat", aspirante.getAppat());
-                cs.setString("paApellidoMat", aspirante.getApmat());
-                cs.setString("paFechaDeNacimiento", aspirante.getFechaNac());
-                cs.setString("paPaisNacimiento", aspirante.getPaisNac());
-                if (!"null".equals(aspirante.getEdoNac())) {
-                    cs.setInt("paEstadoNacimiento", Integer.parseInt(aspirante.getEdoNac().trim()));
-                    cs.setInt("paMunicipioNac", Integer.parseInt(aspirante.getMpioNac().trim()));
-                    cs.setInt("paLocalidadNac", Integer.parseInt(aspirante.getLocNac().trim()));
-                } else {
-                    cs.setString("paEstadoNacimiento", "");
-                    cs.setString("paMunicipioNac", "");
-                    cs.setString("paLocalidadNac", "");
-                }
-                cs.setString("paSexo", String.valueOf(aspirante.getSexo()));
-                cs.setString("paEdoCivil", aspirante.getEdoCivil());
-                cs.setString("paTipoSangre", aspirante.getTipoSangre());
-                cs.setString("paCapDiferente", aspirante.getCapacidadDif());
-                cs.setString("paCursoProp", String.valueOf(aspirante.getCurso().charAt(0)));
-                cs.setString("paCorreo", aspirante.getCorreo());
-
-                //domicilio
-                cs.setInt("paEstadoViveActual", Integer.parseInt(AspDomicilio.getEstadoVive().trim()));
-                cs.setInt("paMunicipioVive", Integer.parseInt(AspDomicilio.getMunicipioVive().trim()));
-                cs.setInt("paLocalidadVive", Integer.parseInt(AspDomicilio.getLocalidadVive().trim()));
-                cs.setString("paCalleAsp", AspDomicilio.getCalleVive());
-                if (!"null".equals(AspDomicilio.getNumInt().trim())) {
-                    if (!"".equals(AspDomicilio.getNumInt().trim())) {
-                        cs.setInt("paNoInterior", Integer.parseInt(AspDomicilio.getNumInt().trim()));
-                    } else {
-                        cs.setString("paNoInterior", "");
-                    }
-                } else {
-                    cs.setString("paNoInterior", "");
-                }
-                cs.setInt("paNoExterior", Integer.parseInt(AspDomicilio.getNumExt().trim()));
-                cs.setString("paColoniaPob", AspDomicilio.getColoniaVive());
-                cs.setInt("paCodPost", Integer.parseInt(AspDomicilio.getCodPostal().trim()));
-                cs.setString("paTelFijo", AspDomicilio.getTelFijo());
-                cs.setString("paTelCel", AspDomicilio.getTelCelular());
-
-                // Carrera
-                cs.setInt("paCarreraOp1", aspirante.getCarrOp1());
-                cs.setInt("paCarreraOp2", aspirante.getCarrOp2());
-                cs.setInt("paCarreraOp3", aspirante.getCarrOp3());
-                //Escuela de procedencia
-                cs.setString("paEscuela", AspEscuela.getEscuela());
-                cs.setString("paClaveEscuela", AspEscuela.getClaveEsc());
-                cs.setString("paTipoEscuela", AspEscuela.getTipoEsc());
-                cs.setInt("paMesIniEsc", Integer.parseInt(AspEscuela.getMesInicio().trim()));
-                cs.setInt("paMesFinEsc", Integer.parseInt(AspEscuela.getMesFin().trim()));
-                cs.setInt("paAñoIniEsc", Integer.parseInt(AspEscuela.getAnioInicio().trim()));
-                cs.setInt("paAñoFinEsc", Integer.parseInt(AspEscuela.getAnioFin().trim()));
-                cs.setInt("paPromedio", Integer.parseInt(AspEscuela.getPromedio().trim()));
-                //socioeconomicos
-                cs.setString("paNombrePadre", AspSocioecono.getNomPadre());
-                cs.setString("paVivePadre", AspSocioecono.getVivePadre());
-                cs.setInt("paOcupacionPadre", Integer.parseInt(AspSocioecono.getOcuPadre().trim()));
-                cs.setInt("paEstudiosPadre", Integer.parseInt(AspSocioecono.getNivEstPadre().trim()));
-                cs.setString("paNombreMadre", AspSocioecono.getNomMadre());
-                cs.setString("paViveMadre", AspSocioecono.getViveMadre());
-                cs.setInt("paOcupacionMadre", Integer.parseInt(AspSocioecono.getOcuMadre().trim()));
-                cs.setInt("paEstudiosMadre", Integer.parseInt(AspSocioecono.getNivEstMadre().trim()));
-                cs.setString("paViveCon", AspSocioecono.getViveCon());
-                cs.setString("paDependEcon", AspSocioecono.getDepenEcon());
-                cs.setString("paIngresosTot", AspSocioecono.getIngreTot());
-                cs.setString("paTipoDeCasa", AspSocioecono.getTipoCasa());
-                cs.setString("paCuartosCasa", AspSocioecono.getCuartosCasa());
-                cs.setInt("paNumPerDepEcon", Integer.parseInt(AspSocioecono.getNumPerEcono().trim()));
-                cs.setInt("paPersonasVCasa", Integer.parseInt(AspSocioecono.getPerViveCasa().trim()));
-                cs.setString("paPrgOportunid", AspSocioecono.getOportunidades());
-                cs.setString("paZonaProced", AspSocioecono.getZonaProced());
-                cs.setString("paTipoBeca", AspSocioecono.getTipoBeca());
-                //contacto
-                cs.setString("paNombreContacto", contacto.getNomContacto());
-                cs.setInt("paEstado", contacto.getEstado());
-                cs.setInt("paMunicipioFk", contacto.getMunicipio());
-                cs.setString("paColonia", contacto.getColonia());
-                cs.setString("paCalle", contacto.getCalle());
-                if (!"null".equals(contacto.getNumInt().trim())) {
-                    cs.setInt("paNo_Interior", Integer.parseInt(contacto.getNumInt().trim()));
-                } else {
-                    cs.setString("paNo_Interior", "");
-                }
-                cs.setInt("paNo_Exterior", contacto.getNumExt());
-                cs.setInt("paCodigoPostal", Integer.parseInt(contacto.getCodPostal().trim()));
-                cs.setString("paTel_Fijo", contacto.getTelFijo());
-                cs.setString("paTel_Cel", contacto.getTelCelular());
-                cs.setString("paCentroTrabajo", contacto.getCentroTrab());
-                cs.setString("paTel_Centro_Trab", contacto.getTelTrab());
-                cs.setString("paTel_Centro_Trab", contacto.getTelTrab());
-
-                cs.registerOutParameter("paCodigoError", OracleTypes.NUMBER);
-                cs.registerOutParameter("paMjeDescError", OracleTypes.VARCHAR);
-                cs.execute();
-                Resultado = cs.getInt("paCodigoError");
-                error = cs.getString("paMjeDescError");
-                cs.close();
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(InsertandoDatos.class.getName()).log(Level.SEVERE, null, ex);
-
-            } finally {
-                con.CerraConexion();
-            }
+            List<Spinner> RespuestaInsert = new ArrayList<>();
+            Spinner bd;
             String RespuestaDatosAsp = "";
 
             if (Resultado != 0) {
@@ -301,7 +189,7 @@ public class InsertandoDatos extends HttpServlet {
                     GeneraAuditoria audi = new GeneraAuditoria();
                     audi.crea_archivo("20000", "Ha ocurrido un error: Al comparar las  opciones de carrera elegidas.", RespuestaDatosAsp);
 
-                    bd = new BaseDatos();
+                    bd = new Spinner();
                     bd.setNombre(RespuestaDatosAsp);
                     bd.setClave("-1");
                     RespuestaInsert.add(bd);
@@ -313,7 +201,7 @@ public class InsertandoDatos extends HttpServlet {
                     GeneraAuditoria aud = new GeneraAuditoria();
                     aud.crea_archivo("20001", "Ha ocurrido un error: No puede elegir dos veces la misma carrera.", RespuestaDatosAsp);
 
-                    bd = new BaseDatos();
+                    bd = new Spinner();
                     bd.setNombre(RespuestaDatosAsp);
                     bd.setClave("-1");
                     RespuestaInsert.add(bd);
@@ -326,13 +214,12 @@ public class InsertandoDatos extends HttpServlet {
                     GeneraAuditoria au = new GeneraAuditoria();
                     au.crea_archivo("20002", "Ha ocurrido un error: Al generar preficha y/o id de  aspirante.", RespuestaDatosAsp);
 
-                    bd = new BaseDatos();
+                    bd = new Spinner();
                     bd.setNombre(RespuestaDatosAsp);
                     bd.setClave("-1");
                     RespuestaInsert.add(bd);
                     break;
                 case 0:
-                    VerificaVigencia v = new VerificaVigencia();
                     String curp = e.encryptURL(aspirante.getCurp().trim());
                     //String url = Constantes.APP_HOME + Constantes.APP_NAME +"/PrefichaGenerar" + "?curp=" + curp;
                     String url = Constantes.URL_ENCRIPT + curp;
@@ -348,7 +235,7 @@ public class InsertandoDatos extends HttpServlet {
                                 + aspirante.getCorreo() + " . Si no logra visualizar el correo en su \"Bandeja de entrada\" debe verificar en la bandeja de \"Correo no deseado\". Las\n"
                                 + "                                instrucciones para darle seguimiento a  su registro están anexas en el correo que le fue enviado,  por ello es  \n"
                                 + "                                importante que lo lea atentamente.";
-                        bd = new BaseDatos();
+                        bd = new Spinner();
                         bd.setNombre(RespuestaDatosAsp);
                         bd.setClave("0");
                         RespuestaInsert.add(bd);
@@ -359,7 +246,7 @@ public class InsertandoDatos extends HttpServlet {
                         GeneraAuditoria ob = new GeneraAuditoria();
                         ob.crea_archivo("1961", "com.sun.mail.util.MailConnectException: Couldn't connect to host, port: mail.ittoluca.edu.mx, 25; timeout -1;", RespuestaDatosAsp);
 
-                        bd = new BaseDatos();
+                        bd = new Spinner();
                         bd.setNombre(RespuestaDatosAsp);
                         bd.setClave("2");
                         RespuestaInsert.add(bd);
@@ -371,7 +258,7 @@ public class InsertandoDatos extends HttpServlet {
                     GeneraAuditoria ob = new GeneraAuditoria();
                     ob.crea_archivo("-2", "La clave CURP " + aspirante.getCurp() + "y/o el correo electrónico  " + aspirante.getCorreo() + " ya se registró en esta convocatoria.", RespuestaDatosAsp);
 
-                    bd = new BaseDatos();
+                    bd = new Spinner();
                     bd.setNombre(RespuestaDatosAsp);
                     bd.setClave("-2");
                     RespuestaInsert.add(bd);
@@ -381,7 +268,7 @@ public class InsertandoDatos extends HttpServlet {
                     GeneraAuditoria ob2 = new GeneraAuditoria();
                     ob2.crea_archivo("-3", "CURP " + aspirante.getCurp() + "|correo electrónico  " + aspirante.getCorreo() + " Ocurrio un error al obtener la cantidad de prefichas.", error);
 
-                    bd = new BaseDatos();
+                    bd = new Spinner();
                     bd.setNombre(RespuestaDatosAsp);
                     bd.setClave("-3");
                     RespuestaInsert.add(bd);
@@ -406,7 +293,7 @@ public class InsertandoDatos extends HttpServlet {
                                 + aspirante.getCorreo() + " . Si no logra visualizar el correo en su \"Bandeja de entrada\" debe verificar en la bandeja de \"Correo no deseado\". Las\n"
                                 + "                                instrucciones para darle seguimiento a  su registro están anexas en el correo que le fue enviado,  por ello es  \n"
                                 + "                                importante que lo lea atentamente.";
-                        bd = new BaseDatos();
+                        bd = new Spinner();
                         bd.setNombre(RespuestaDatosAsp);
                         bd.setClave("4");
                         RespuestaInsert.add(bd);
@@ -417,7 +304,7 @@ public class InsertandoDatos extends HttpServlet {
                         GeneraAuditoria ob4 = new GeneraAuditoria();
                         ob4.crea_archivo("1961", "com.sun.mail.util.MailConnectException: Couldn't connect to host, port: mail.ittoluca.edu.mx, 25; timeout -1;", RespuestaDatosAsp);
 
-                        bd = new BaseDatos();
+                        bd = new Spinner();
                         bd.setNombre(RespuestaDatosAsp);
                         bd.setClave("2");
                         RespuestaInsert.add(bd);
@@ -429,7 +316,7 @@ public class InsertandoDatos extends HttpServlet {
                             + "Por favor vuelva a intentarlo y si el error persiste favor de "
                             + "contactarnos desde la  página  principal en el  apartado de contacto. \n\n"
                             + error;
-                    bd = new BaseDatos();
+                    bd = new Spinner();
                     bd.setNombre(RespuestaDatosAsp);
                     bd.setClave("-1");
                     RespuestaInsert.add(bd);
