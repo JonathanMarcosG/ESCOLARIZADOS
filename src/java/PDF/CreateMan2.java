@@ -1,5 +1,7 @@
-package ConexionBD;
+package PDF;
 
+import com.itextpdf.text.BadElementException;
+import modelos.Constantes;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -11,9 +13,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Font;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class CreateMan2 {
 
-    public void create(HttpServletResponse response, ServletContext context) throws IOException {
+    public ByteArrayOutputStream create(ServletContext context) throws IOException{
         try {
             String liga_home = Constantes.APP_HOME ;
             Document doc = new Document();
@@ -175,16 +175,7 @@ public class CreateMan2 {
             doc.add(Logo_itt_footer2);
 
             doc.close();
-            
-            response.setHeader("Expires", "0");
-            response.setHeader("Cache-Control", "must-revalidate, post-check=0, pre-check=0");
-            response.setHeader("Pragma", "public");
-            response.setContentType("application/pdf");
-            response.setContentLength(baos.size());
-            OutputStream os = response.getOutputStream();
-            baos.writeTo(os);
-            os.flush();
-            os.close();
+            return baos;
         } catch (DocumentException docE) {
             throw new IOException(docE.getMessage());
         }

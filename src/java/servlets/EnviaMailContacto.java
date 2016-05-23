@@ -1,6 +1,6 @@
 package servlets;
 
-import ConexionBD.Constantes;
+import modelos.Constantes;
 import beans.BMail;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -30,7 +30,7 @@ public class EnviaMailContacto extends HttpServlet {
             beanMail.setTexto(texto);
             ClaseEnviarCorreo m = new ClaseEnviarCorreo();
             
-            boolean ret = m.sendMailContacto(getServletContext(),new CuerpoCorreos().contacto(beanMail), Constantes.MAIL_NOMBRE2, false, Constantes.MAIL_ASUNTO_CONTACTO);
+            boolean ret = m.sendMailContacto(getServletContext(),new CuerpoCorreos().contacto(beanMail), Constantes.MAIL_NOMBRE, false, Constantes.MAIL_ASUNTO_CONTACTO);
             if (ret) {
                 out.write("s");
             } else {

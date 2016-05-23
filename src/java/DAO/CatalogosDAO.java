@@ -5,9 +5,9 @@
  */
 package DAO;
 
-import ConexionBD.Constantes;
+import modelos.Constantes;
 import beans.ClaveCCT;
-import beans.Spinner;
+import beans.Combos;
 import itt.web.conexion.Conexion;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -28,12 +28,12 @@ public class CatalogosDAO {
     //Parámetros de Entrada:opc--Corresponde a la opción del catálogo que se desea consultar
     //pk---Corresponde a la llave foránea para realizar la condición en la consulta.
     //Parámetros de Salida: Estados--Regresa un ArrayList con el contenido de la consulta.
-    public static List<Spinner> getCatalogos(String username, String password, int opc, int pk) {
-        Spinner bd;
+    public static List<Combos> getCatalogos(String username, String password, int opc, int pk) {
+        Combos bd;
         //Creamos el objeto Logger para registro de errores.
         Logger logger = new Logger();
         //Se crea la lista de retorno.
-        List<Spinner> Estados = new ArrayList<>();
+        List<Combos> Estados = new ArrayList<>();
         //Se usa la librería para obtener una instancia de Connection.
         Connection conn = Conexion.getConnection(username, password, Constantes.NOMBRE_APP, Constantes.NOMBRE_MODULO);
         //Se valida que la conexión se haya obtenido exitosamente.
@@ -58,13 +58,13 @@ public class CatalogosDAO {
                     ResultSet rs = (ResultSet) call.getObject("paCurRetorno");
                     if (opc == 11 || opc == 17 || opc == 15) {
                         while (rs.next()) {
-                            bd = new Spinner();
+                            bd = new Combos();
                             bd.setNombre(rs.getObject(1).toString());
                             Estados.add(bd);
                         }
                     } else {
                         while (rs.next()) {
-                            bd = new Spinner();
+                            bd = new Combos();
                             bd.setClave(rs.getObject(1).toString());
                             bd.setNombre(rs.getObject(2).toString());
                             Estados.add(bd);

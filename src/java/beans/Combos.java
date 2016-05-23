@@ -8,7 +8,7 @@ import java.util.List;
  * @author ElyyzZ BaRruEtA
  */
 
-public class Spinner {
+public class Combos {
     private String Clave;
     private String Nombre;
 
@@ -40,9 +40,9 @@ public class Spinner {
         this.Nombre = Nombre;
     }
     
-     public List<Spinner> AgregaS(List<Spinner> respuestabd) {
-        List<Spinner> catalogo= new  ArrayList<>();
-        Spinner B= new Spinner();
+     public List<Combos> AgregaS(List<Combos> respuestabd) {
+        List<Combos> catalogo= new  ArrayList<>();
+        Combos B= new Combos();
         B.setClave("--");
         B.setNombre("--Seleccione--");
         catalogo.add(B);

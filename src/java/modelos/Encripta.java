@@ -7,7 +7,6 @@
 
 package modelos;
 
-import ConexionBD.Constantes;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;

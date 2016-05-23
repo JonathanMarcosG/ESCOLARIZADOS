@@ -10,7 +10,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import ConexionBD.CreatePreficha2;
+import PDF.CreatePreficha2;
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
 import modelos.Encripta;
 
 /**
@@ -40,7 +42,7 @@ public class PrefichaGenerar extends HttpServlet {
         String curp = request.getParameter("curp");
         curp = e.decrypt(curp);
         CreatePreficha2 preficha = new CreatePreficha2();
-        preficha.create(response, getServletContext(), curp);
+        ByteArrayOutputStream obj=preficha.create(getServletContext(), curp);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -56,7 +58,25 @@ public class PrefichaGenerar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String curp = request.getParameter("curp");
+        curp = e.decrypt(curp);
+        CreatePreficha2 preficha = new CreatePreficha2();
+        ByteArrayOutputStream obj=preficha.create(getServletContext(), curp);
+//        processRequest(request, response);
+        sendDocument(response, obj);
+    }
+    public void sendDocument(HttpServletResponse response, ByteArrayOutputStream obj) throws IOException{
+         
+        response.setHeader("Expires", "0");
+            response.setHeader("Cache-Control", "must-revalidate, post-check=0, pre-check=0");
+            response.setHeader("Pragma", "public");
+            response.setContentType("application/pdf");
+            response.setContentLength(obj.size());
+        try (OutputStream os = response.getOutputStream()) {
+            obj.writeTo(os);
+            os.flush();
+            os.close();
+        }
     }
 
 }

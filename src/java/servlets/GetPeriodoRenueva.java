@@ -5,7 +5,7 @@
  */
 package servlets;
 
-import ConexionBD.Constantes;
+import modelos.Constantes;
 import DAO.VerificarDAO;
 import beans.FechaRenovar;
 import com.google.gson.Gson;

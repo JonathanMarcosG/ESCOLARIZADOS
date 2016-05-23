@@ -6,7 +6,6 @@
  */
 package modelos;
 
-import ConexionBD.Constantes;
 import beans.BMail;
 import java.util.Properties;
 import javax.activation.DataHandler;
@@ -52,6 +51,7 @@ public class ClaseEnviarCorreo {
         int retorno = 0;
         addContent(formato(cuerpo));
         addImagen(context);
+        addPDF(context);
 
         Session session = Session.getDefaultInstance(propiedades());
         MimeMessage message = new MimeMessage(session);
@@ -166,7 +166,6 @@ public class ClaseEnviarCorreo {
 
     public Properties propiedades() {
         Properties props = System.getProperties();
-//        Properties props =new Properties();
         props.setProperty("mail.mime.charset", "ISO-8859-1");
 
         props.put("mail.smtp.starttls.enable", "true");
@@ -187,34 +186,60 @@ public class ClaseEnviarCorreo {
 
         String content;
 
-        String cabecera = "<html>\n"
-                + "    <head>\n"
-                + "      \n"
-                + "        <meta charset=\"UTF-8\">\n"
-                + "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
-                + "    </head>\n"
-                + "    <header style=\"position: relative;left:80px;\">\n"
-                + "        <img src=\"cid:cidcabecera\">\n"
-                + "        <pre style=\"font-family:'calibri'; font-size: 16px;\">\n"
-                + "            Instituto Tecnológico de Toluca\n"
-                + "\n"
-                + "            Centro de Cómputo\n"
-                + "\n"
-                + "            Coordinación de Desarrollo de Sistemas\n"
-                + "        </pre>\n"
-                + "    </header>\n"
-                + "    <body >";
+        String cabecera = new StringBuffer()
+                .append("<html>")
+                .append("<br>")
+                .append("    <head>")
+                .append("<br><br>")
+                .append( "        <meta charset=\"UTF-8\">")
+                .append("<br>")
+                .append("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">")
+                .append("<br>")
+                .append("    </head>")
+                .append("<br>")
+                .append("    <header style=\"position: relative;left:80px;\">")
+                .append("<br>")
+                .append("        <img src=\"cid:cidcabecera\">")
+                .append("<br>")
+                .append("        <pre style=\"font-family:'calibri'; font-size: 16px;\">")
+                .append("<br>")
+                .append("            Instituto Tecnológico de Toluca")
+                .append("<br><br>")
+                .append("            Centro de Cómputo")
+                .append("<br><br>")
+                .append("            Coordinación de Desarrollo de Sistemas")
+                .append("<br>")
+                .append("        </pre>")
+                .append("<br>")
+                .append("    </header>")
+                .append("<br>")
+                .append("    <body >").toString();
 
-        String pie = " </body>\n"
-                + "    <footer  style=\"position: relative;\" >\n"
-                + "         <img src=\"cid:cidpie\">\n"
-                + "    </footer>\n"
-                + "</html>";
+        String pie = new StringBuffer()
+                .append(" </body>")
+                .append("<br>")                
+                .append("    <footer  style=\"position: relative;\" >")
+                .append("<br>")
+                .append("         <img src=\"cid:cidpie\">")
+                .append("<br>")
+                .append("    </footer>")
+                .append("<br>")
+                .append("</html>").toString();
         content = String.format("%s%s%s%s%s", cabecera, "<br/>", cuerpo, "<br/>", pie);
 
         return content;
     }
 
+    public void addPDF(ServletContext context) throws Exception {
+        String url_cab = "/PDF/Manual-CENEVAL.pdf";
+        String cab_img = context.getRealPath(url_cab);
+        BodyPart messageBodyPart = new MimeBodyPart();
+        DataSource fds = new FileDataSource(cab_img);
+        messageBodyPart.setDataHandler(new DataHandler(fds));
+        messageBodyPart.setFileName("Manual-CENEVAL.pdf");
+        this.multipart.addBodyPart(messageBodyPart);
+        
+    }
     public void addImagen(ServletContext context) throws Exception {
 
         String url_cab = "/Imagenes/header_ittoluca.png";

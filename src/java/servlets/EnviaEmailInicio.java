@@ -5,7 +5,7 @@
  */
 package servlets;
 
-import ConexionBD.Constantes;
+import modelos.Constantes;
 import DAO.ValidacionesDAO;
 import beans.BMail;
 import beans.FechaRenovar;
@@ -58,15 +58,13 @@ public class EnviaEmailInicio extends HttpServlet {
             int existe = Integer.parseInt(cadExiste[0]);
             String msg = cadExiste[1].trim();
             
-//            existe=0;
-            
+//            existe =0;
             switch (existe) {
 
                 case 0:
                     BMail beanMail = new CuerpoCorreos().inicioRegistro(Constantes.APP_HOME, liga);
 
                     ClaseEnviarCorreo cec = new ClaseEnviarCorreo();
-                    System.out.println("el correo a enviar es:¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿"+correo);
                     int ret = cec.sendMail(getServletContext(), correo, beanMail.getCuerpo(), Constantes.MAIL_ASUNTO_REGISTRO);
                     switch (ret) {
 

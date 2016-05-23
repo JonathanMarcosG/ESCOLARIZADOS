@@ -5,10 +5,10 @@
  */
 package servlets;
 
-import ConexionBD.Constantes;
+import modelos.Constantes;
 import DAO.InsercionesDAO;
 import beans.BMail;
-import beans.Spinner;
+import beans.Combos;
 import beans.ContactoEmeAsp;
 import beans.DomicilioAspirante;
 import beans.EscProcedenciaAsp;
@@ -29,7 +29,7 @@ import modelos.ClaseEnviarCorreo;
 import modelos.CuerpoCorreos;
 import modelos.Encripta;
 import modelos.GeneraAuditoria;
-import modelos.llenarSpinner;
+import modelos.llenarCombos;
 /**
  *
  * @author Desarrollo de sistem
@@ -49,7 +49,7 @@ public class InsertandoDatos extends HttpServlet {
         try {
             response.setContentType("text/html;charset=ISO-8859-1");
             request.setCharacterEncoding("UTF8");
-            llenarSpinner b = new llenarSpinner();
+            llenarCombos b = new llenarCombos();
             PersonalesAspirante aspirant = (PersonalesAspirante) request.getSession().getAttribute("aspirante");
             EscProcedenciaAsp AspEsc = (EscProcedenciaAsp) request.getSession().getAttribute("AspEscuela");
             DomicilioAspirante AspDom = (DomicilioAspirante) request.getSession().getAttribute("AspDomicilio");
@@ -88,8 +88,8 @@ public class InsertandoDatos extends HttpServlet {
                 request.getSession().setAttribute("contacto", contacto);
                 //request.getSession().invalidate();
             } else {
-                List<Spinner> RespuestaInsert = new ArrayList<>();
-                Spinner bd = new Spinner();
+                List<Combos> RespuestaInsert = new ArrayList<>();
+                Combos bd = new Combos();
                 bd.setNombre("Los  teléfonos deben ser distintos de  cero.");
                 bd.setClave("5");
                 RespuestaInsert.add(bd);
@@ -174,13 +174,10 @@ public class InsertandoDatos extends HttpServlet {
 //            Conexion con = new Conexion();
 
             Encripta e = new Encripta();
-            List<Spinner> RespuestaInsert = new ArrayList<>();
-            Spinner bd;
+            List<Combos> RespuestaInsert = new ArrayList<>();
+            Combos bd;
             String RespuestaDatosAsp = "";
 
-            if (Resultado != 0) {
-
-            }
             switch (Resultado) {
                 case 20000:
                     RespuestaDatosAsp = "Ha ocurrido un error: Al comparar las  opciones de carrera elegidas."
@@ -189,7 +186,7 @@ public class InsertandoDatos extends HttpServlet {
                     GeneraAuditoria audi = new GeneraAuditoria();
                     audi.crea_archivo("20000", "Ha ocurrido un error: Al comparar las  opciones de carrera elegidas.", RespuestaDatosAsp);
 
-                    bd = new Spinner();
+                    bd = new Combos();
                     bd.setNombre(RespuestaDatosAsp);
                     bd.setClave("-1");
                     RespuestaInsert.add(bd);
@@ -201,7 +198,7 @@ public class InsertandoDatos extends HttpServlet {
                     GeneraAuditoria aud = new GeneraAuditoria();
                     aud.crea_archivo("20001", "Ha ocurrido un error: No puede elegir dos veces la misma carrera.", RespuestaDatosAsp);
 
-                    bd = new Spinner();
+                    bd = new Combos();
                     bd.setNombre(RespuestaDatosAsp);
                     bd.setClave("-1");
                     RespuestaInsert.add(bd);
@@ -214,7 +211,7 @@ public class InsertandoDatos extends HttpServlet {
                     GeneraAuditoria au = new GeneraAuditoria();
                     au.crea_archivo("20002", "Ha ocurrido un error: Al generar preficha y/o id de  aspirante.", RespuestaDatosAsp);
 
-                    bd = new Spinner();
+                    bd = new Combos();
                     bd.setNombre(RespuestaDatosAsp);
                     bd.setClave("-1");
                     RespuestaInsert.add(bd);
@@ -235,7 +232,7 @@ public class InsertandoDatos extends HttpServlet {
                                 + aspirante.getCorreo() + " . Si no logra visualizar el correo en su \"Bandeja de entrada\" debe verificar en la bandeja de \"Correo no deseado\". Las\n"
                                 + "                                instrucciones para darle seguimiento a  su registro están anexas en el correo que le fue enviado,  por ello es  \n"
                                 + "                                importante que lo lea atentamente.";
-                        bd = new Spinner();
+                        bd = new Combos();
                         bd.setNombre(RespuestaDatosAsp);
                         bd.setClave("0");
                         RespuestaInsert.add(bd);
@@ -246,7 +243,7 @@ public class InsertandoDatos extends HttpServlet {
                         GeneraAuditoria ob = new GeneraAuditoria();
                         ob.crea_archivo("1961", "com.sun.mail.util.MailConnectException: Couldn't connect to host, port: mail.ittoluca.edu.mx, 25; timeout -1;", RespuestaDatosAsp);
 
-                        bd = new Spinner();
+                        bd = new Combos();
                         bd.setNombre(RespuestaDatosAsp);
                         bd.setClave("2");
                         RespuestaInsert.add(bd);
@@ -258,7 +255,7 @@ public class InsertandoDatos extends HttpServlet {
                     GeneraAuditoria ob = new GeneraAuditoria();
                     ob.crea_archivo("-2", "La clave CURP " + aspirante.getCurp() + "y/o el correo electrónico  " + aspirante.getCorreo() + " ya se registró en esta convocatoria.", RespuestaDatosAsp);
 
-                    bd = new Spinner();
+                    bd = new Combos();
                     bd.setNombre(RespuestaDatosAsp);
                     bd.setClave("-2");
                     RespuestaInsert.add(bd);
@@ -268,7 +265,7 @@ public class InsertandoDatos extends HttpServlet {
                     GeneraAuditoria ob2 = new GeneraAuditoria();
                     ob2.crea_archivo("-3", "CURP " + aspirante.getCurp() + "|correo electrónico  " + aspirante.getCorreo() + " Ocurrio un error al obtener la cantidad de prefichas.", error);
 
-                    bd = new Spinner();
+                    bd = new Combos();
                     bd.setNombre(RespuestaDatosAsp);
                     bd.setClave("-3");
                     RespuestaInsert.add(bd);
@@ -293,7 +290,7 @@ public class InsertandoDatos extends HttpServlet {
                                 + aspirante.getCorreo() + " . Si no logra visualizar el correo en su \"Bandeja de entrada\" debe verificar en la bandeja de \"Correo no deseado\". Las\n"
                                 + "                                instrucciones para darle seguimiento a  su registro están anexas en el correo que le fue enviado,  por ello es  \n"
                                 + "                                importante que lo lea atentamente.";
-                        bd = new Spinner();
+                        bd = new Combos();
                         bd.setNombre(RespuestaDatosAsp);
                         bd.setClave("4");
                         RespuestaInsert.add(bd);
@@ -304,7 +301,7 @@ public class InsertandoDatos extends HttpServlet {
                         GeneraAuditoria ob4 = new GeneraAuditoria();
                         ob4.crea_archivo("1961", "com.sun.mail.util.MailConnectException: Couldn't connect to host, port: mail.ittoluca.edu.mx, 25; timeout -1;", RespuestaDatosAsp);
 
-                        bd = new Spinner();
+                        bd = new Combos();
                         bd.setNombre(RespuestaDatosAsp);
                         bd.setClave("2");
                         RespuestaInsert.add(bd);
@@ -312,11 +309,12 @@ public class InsertandoDatos extends HttpServlet {
 
                     break;
                 default:
-                    RespuestaDatosAsp = "Ha ocurrido un error y no se  han  podido guardar sus datos. "
-                            + "Por favor vuelva a intentarlo y si el error persiste favor de "
-                            + "contactarnos desde la  página  principal en el  apartado de contacto. \n\n"
-                            + error;
-                    bd = new Spinner();
+                    RespuestaDatosAsp = new StringBuffer()
+                            .append("Ha ocurrido un error y no se  han  podido guardar sus datos. ")
+                            .append("Por favor vuelva a intentarlo y si el error persiste favor de ")
+                            .append("contactarnos desde la  página  principal en el  apartado de contacto. \n\n")
+                            .append(error).toString();
+                    bd = new Combos();
                     bd.setNombre(RespuestaDatosAsp);
                     bd.setClave("-1");
                     RespuestaInsert.add(bd);

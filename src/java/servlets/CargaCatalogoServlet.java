@@ -5,9 +5,9 @@
  */
 package servlets;
 
-import ConexionBD.Constantes;
+import modelos.Constantes;
 import DAO.CatalogosDAO;
-import beans.Spinner;
+import beans.Combos;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.List;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelos.llenarSpinner;
+import modelos.llenarCombos;
 
 /**
  * 1.- Carga catalogo de Municipios 2.- Carga catalogo de localidades 3.- Carga
@@ -28,22 +28,22 @@ import modelos.llenarSpinner;
  */
 public class CargaCatalogoServlet extends HttpServlet {
 
-    llenarSpinner bd = new llenarSpinner();
-    List<Spinner> estado;
-    List<Spinner> NivelEstudios;
-    List<Spinner> Dependencia;
-    List<Spinner> Ocupaciones;
-    List<Spinner> cuartos;
-    List<Spinner> casa ;
-    List<Spinner> numero = bd.llenaNumero();
-    List<Spinner> Ingresos;
-    List<Spinner> zona;
-    Spinner catalogo = new Spinner();
-    List<Spinner> municipio;
-    List<Spinner> Localidad;
-    List<Spinner> Estados;
+    llenarCombos bd = new llenarCombos();
+    List<Combos> estado;
+    List<Combos> NivelEstudios;
+    List<Combos> Dependencia;
+    List<Combos> Ocupaciones;
+    List<Combos> cuartos;
+    List<Combos> casa ;
+    List<Combos> numero = bd.llenaNumero();
+    List<Combos> Ingresos;
+    List<Combos> zona;
+    Combos catalogo = new Combos();
+    List<Combos> municipio;
+    List<Combos> Localidad;
+    List<Combos> Estados;
 
-    Spinner cat = new Spinner();
+    Combos cat = new Combos();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String opc = request.getParameter("opcion");

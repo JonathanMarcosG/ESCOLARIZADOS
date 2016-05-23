@@ -40,6 +40,7 @@ function IniCap(nombre) {
     return returnString;
 }
 function ConfirmaDatos() {
+
     var correo = $('#caja_texto_email').val();
     var nombre = $('#inputnombre').val().toLowerCase();
     var paterno = $('#inputpaterno').val().toLowerCase();
@@ -100,7 +101,7 @@ function valDate() {
 
         var inicio = $('#mes_inicio option:selected').val() + "-01-" + $('#anio_inicio option:selected').val();
         var fin = $('#mes_fin option:selected').val() + "-01-" + $('#anio_fin option:selected').val();
-
+        
         var formatB = new Date(inicio);
         var formatE = new Date(fin);
 
@@ -1430,7 +1431,7 @@ $(document).ready(function () {
                                     }
                                     if (data == 5) {
                                         //alert("Los números telefónicos deben ser distintos de ceros.");
-                                        alert("Verifíque los números telefónicos, ya que deben ser distintos de cero y solo contener digitos.");
+                                        alert("Verifíque los números telefónicos, ya que deben ser distintos de cero y solo pueden contener digitos.");
                                     }
                                     if (data == 6) {
                                         alert("Las opciones de carrera se repiten, para continuar asegurese de elegir opciones distintas.");
@@ -1519,6 +1520,7 @@ $(document).ready(function () {
             $.get('/MODULO_ASPIRANTE/InsertandoDatos',
                     {DatosSoc: DatosSoc},
                     function (RespuestaDatosAsp) {
+                        alert("ESTA ES LA RESPUESTA "+RespuestaDatosAsp);
                         var res;
                         var op;
                         $.each(RespuestaDatosAsp, function (index, item) {

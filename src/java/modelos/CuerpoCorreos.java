@@ -60,6 +60,10 @@ public class CuerpoCorreos {
                 .append("<a href=")
                 .append(liga)
                 .append(" >  Registro Aspirante </a></font>.")
+                .append("<br><br>")
+                .append("<b><ins>NOTA: </ins><b>")
+                .append("Para fines prácticos le recomendamos revise el archivo anexo, ")
+                .append("mismo que le servirá como guia para el proceso de registro en CENEVAL.")
                 .toString();
 
         beanMail.setCuerpo(mensaje);

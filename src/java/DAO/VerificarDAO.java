@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import ConexionBD.Constantes;
+import modelos.Constantes;
 import beans.FechaRenovar;
 import itt.web.conexion.Conexion;
 import java.sql.CallableStatement;

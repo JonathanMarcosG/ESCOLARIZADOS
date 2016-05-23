@@ -5,7 +5,7 @@
  */
 package servlets;
 
-import ConexionBD.Constantes;
+import modelos.Constantes;
 import DAO.VerificarDAO;
 import java.io.IOException;
 import java.io.PrintWriter;

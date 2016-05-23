@@ -5,10 +5,12 @@
  */
 package servlets;
 
-import ConexionBD.Constantes;
-import ConexionBD.CreatePreficha2;
+import modelos.Constantes;
+import PDF.CreatePreficha2;
 import DAO.VerificarDAO;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,26 +47,25 @@ public class ValidaRenovar extends HttpServlet {
             
 
         } catch (NumberFormatException es) {
-            preficha.noRenovar(response, getServletContext(), "Estimado aspirante, no hemos podido generar su preficha, le pedimos intentarlo más tarde.");
-            
+            sendDocument(response, preficha.noRenovar(getServletContext(), "Estimado aspirante, no hemos podido generar su preficha, le pedimos intentarlo más tarde."));
         }
         switch (valido) {
             case 0:
                 //Valido renovar
-                preficha.create(response, getServletContext(), curp);
+                sendDocument(response,preficha.create(getServletContext(), curp));
                 break;
             case 1:
                 //No valido renovar
                 String error1 = resValidoRenov[1];
-                preficha.noRenovar(response, getServletContext(), error1);
+                sendDocument(response,preficha.noRenovar(getServletContext(), error1));
                 break;
             case 3:
                 String error3 = resValidoRenov[1];
-                preficha.noRenovar(response, getServletContext(), error3);
+                sendDocument(response,preficha.noRenovar(getServletContext(), error3));
                 break;
             default:
                 String errorDef = resValidoRenov[1];
-                preficha.noRenovar(response, getServletContext(), errorDef);
+                sendDocument(response,preficha.noRenovar(getServletContext(), errorDef));
                 break;
         }
     }
@@ -84,5 +85,18 @@ public class ValidaRenovar extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-
+    
+    public void sendDocument(HttpServletResponse response, ByteArrayOutputStream obj) throws IOException{
+         
+        response.setHeader("Expires", "0");
+            response.setHeader("Cache-Control", "must-revalidate, post-check=0, pre-check=0");
+            response.setHeader("Pragma", "public");
+            response.setContentType("application/pdf");
+            response.setContentLength(obj.size());
+        try (OutputStream os = response.getOutputStream()) {
+            obj.writeTo(os);
+            os.flush();
+            os.close();
+        }
+    }
 }

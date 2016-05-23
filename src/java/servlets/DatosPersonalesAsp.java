@@ -1,6 +1,6 @@
 package servlets;
 
-import ConexionBD.Constantes;
+import modelos.Constantes;
 import DAO.ValidacionesDAO;
 import beans.DomicilioAspirante;
 import beans.EscProcedenciaAsp;
@@ -12,7 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelos.llenarSpinner;
+import modelos.llenarCombos;
 
 /**
  * 1.-Setea beans de Datos personales de Aspirante y valida curp y correo 3.-
@@ -32,7 +32,7 @@ public class DatosPersonalesAsp extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
 //    Procedimientos p = new Procedimientos();
-    llenarSpinner b = new llenarSpinner();
+    llenarCombos b = new llenarCombos();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

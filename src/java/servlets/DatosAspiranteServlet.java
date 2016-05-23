@@ -5,9 +5,9 @@
  */
 package servlets;
 
-import ConexionBD.Constantes;
+import modelos.Constantes;
 import DAO.CatalogosDAO;
-import beans.Spinner;
+import beans.Combos;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelos.Encripta;
-import modelos.llenarSpinner;
+import modelos.llenarCombos;
 
 /**
  * Carga al dar clic en el enlace que se envia al correo del aspirante
@@ -27,25 +27,25 @@ public class DatosAspiranteServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    llenarSpinner bd = new llenarSpinner();
+    llenarCombos bd = new llenarCombos();
     Encripta en = new Encripta();
-    Spinner catalogo = new Spinner();
+    Combos catalogo = new Combos();
     
-    List<Spinner> dia = bd.llenadia();
-    List<Spinner> mes = bd.llenames();
-    List<Spinner> anio = bd.llenaaño();
-    List<Spinner> promedio = bd.llenaPromedio();
-    List<Spinner> EdoCivil;
-    List<Spinner> Discapacidad;
-    List<Spinner> Escuela;
-    List<Spinner> sangre;
-    List<Spinner> pais;
-    List<Spinner> estado;
+    List<Combos> dia = bd.llenadia();
+    List<Combos> mes = bd.llenames();
+    List<Combos> anio = bd.llenaaño();
+    List<Combos> promedio = bd.llenaPromedio();
+    List<Combos> EdoCivil;
+    List<Combos> Discapacidad;
+    List<Combos> Escuela;
+    List<Combos> sangre;
+    List<Combos> pais;
+    List<Combos> estado;
 
-    List<Spinner> opciones;
-    List<Spinner> opciones1;
-    List<Spinner> opciones2;
-    List<Spinner> opciones3;
+    List<Combos> opciones;
+    List<Combos> opciones1;
+    List<Combos> opciones2;
+    List<Combos> opciones3;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
