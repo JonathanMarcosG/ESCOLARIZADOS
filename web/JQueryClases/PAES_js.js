@@ -101,7 +101,7 @@ function valDate() {
 
         var inicio = $('#mes_inicio option:selected').val() + "-01-" + $('#anio_inicio option:selected').val();
         var fin = $('#mes_fin option:selected').val() + "-01-" + $('#anio_fin option:selected').val();
-        
+
         var formatB = new Date(inicio);
         var formatE = new Date(fin);
 
@@ -1074,9 +1074,10 @@ $(document).ready(function () {
                     backdrop: "static"
                 });
             } else {
-                $('#divMarcoNoFichas').modal({
-                    backdrop: "static"
-                });
+                prefichas(data);
+//                $('#divMarcoNoFichas').modal({
+//                    backdrop: "static"
+//                });
             }
         });
 
@@ -1084,6 +1085,20 @@ $(document).ready(function () {
         //$('#cargandoDivAnimacion').hide();
         //$('#divmarcoEnvCorreo').modal();
     });
+    function prefichas(per) {
+
+        var resumen = per.split("&");
+        if (resumen[0] != -10)
+        {
+            $('#divMarcoNoFichas').modal({
+                    backdrop: "static"
+            });
+        } else
+        {
+            alert(resumen[1]);
+            hideBtnInicio();
+        }
+    }
 
     $('#btnAvisoPagoAcep').off().on('click', function () {
         $('#divAvisoPago').modal('hide');
@@ -1412,7 +1427,7 @@ $(document).ready(function () {
                                     , op1carre: op1carre, op2carre: op2carre, op3carre: op3carre, zipCode: codPostal, periodoEsc: periodoEsc},
                                 function (data) {
                                     //alert("info del servlet: data = " + data);
-                                    if (data==0) {
+                                    if (data == 0) {
                                         ConfirmaDatos();
                                         //alert("Termina confirmaDatos con data=" + data +"\n intentando modal de confirmacion");
                                         //$('#div_fondomarco').show();
@@ -1520,7 +1535,7 @@ $(document).ready(function () {
             $.get('/MODULO_ASPIRANTE/InsertandoDatos',
                     {DatosSoc: DatosSoc},
                     function (RespuestaDatosAsp) {
-                        alert("ESTA ES LA RESPUESTA "+RespuestaDatosAsp);
+                        alert("ESTA ES LA RESPUESTA " + RespuestaDatosAsp);
                         var res;
                         var op;
                         $.each(RespuestaDatosAsp, function (index, item) {

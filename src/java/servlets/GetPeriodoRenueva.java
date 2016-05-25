@@ -35,7 +35,7 @@ public class GetPeriodoRenueva extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        fechaList = VerificarDAO.getPeriodoRenovacion(Constantes.BD_NAME,Constantes.BD_PASS);
+        fechaList= VerificarDAO.getPeriodoRenovacion(Constantes.BD_NAME,Constantes.BD_PASS);      
         String json = new Gson().toJson(fechaList);
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");

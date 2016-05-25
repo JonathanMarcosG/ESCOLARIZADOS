@@ -51,6 +51,8 @@ public class GeneraAuditoria {
             wr.append("\nMensaje: " + mensage + "                                                                                        ");
             wr.close();
             bw.close();
+            w.close();
+            System.out.println();
         } catch (IOException ex) {
             
         }

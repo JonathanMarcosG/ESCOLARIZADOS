@@ -34,13 +34,15 @@ public class CapPrefichas extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
          //Retorno de procedimiento 
-        String[] retorno = VerificarDAO.getCupo(Constantes.BD_NAME,Constantes.BD_PASS).split("&");
+        String retorno = VerificarDAO.getCupo(Constantes.BD_NAME,Constantes.BD_PASS);
+        String vecRetorno[]=retorno.split("&");
         String answer = "";
-        int cod = Integer.parseInt(retorno[0]);
+        int cod = Integer.parseInt(vecRetorno[0]);
         
-        answer = (cod > 0) ? "disponible" :"agotado";
+        answer = (cod > 0) ? "disponible" :retorno;
        
         out.print(answer);
+        System.out.println(retorno);
     }
     
     
