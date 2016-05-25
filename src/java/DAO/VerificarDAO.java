@@ -15,7 +15,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import modelos.GeneraAuditoria;
 import mx.edu.ittoluca.logutils.Logger;
 import oracle.jdbc.OracleTypes;
 
@@ -86,8 +85,9 @@ public class VerificarDAO {
                     call.close();
                     return val_per;
                 } else {
-                    GeneraAuditoria audit = new GeneraAuditoria();
-                    audit.crea_archivo(resultado_error, descrip_error, "Error al momento de obtener la convocatoria para el periodo y año actual");
+                    //"Error al momento de obtener la convocatoria para el periodo y año actual"
+                    String logMessage = resultado_error + "->" + descrip_error ;
+                    logger.registrarError(Logger.GRAVE, logMessage, Constantes.NOMBRE_APP, Constantes.NOMBRE_MODULO, username);
                     call.close();
                     return resultado_error + "&" + descrip_error;
                 }
@@ -140,8 +140,9 @@ public class VerificarDAO {
                     fecha.setDescError(call.getString("paMjeDescError"));
 
                 } else {
-                    GeneraAuditoria audit = new GeneraAuditoria();
-                    audit.crea_archivo(resultado_error, descrip_error, "Error al momento de obtener el periodo de renovación de referencia");
+                    //"Error al momento de obtener el periodo de renovación de referencia"
+                    String logMessage = resultado_error + "->" + descrip_error;
+                    logger.registrarError(Logger.GRAVE, logMessage, Constantes.NOMBRE_APP, Constantes.NOMBRE_MODULO, username);
                     fecha.setFechaIni(call.getString("paFechaIniRenov"));
                     fecha.setFechaFin(call.getString("paFechaFinRenov"));
                     fecha.setCodError(call.getInt("paCodigoError"));
@@ -231,8 +232,9 @@ public class VerificarDAO {
 
                     }
                 } else {
-                    GeneraAuditoria audit = new GeneraAuditoria();
-                    audit.crea_archivo(Integer.toBinaryString(resultado_error), descrip_error, "Error al momento de validar la CURP del aspirante para renovar su referencia bancaria.");
+                    //"Error al momento de validar la CURP del aspirante para renovar su referencia bancaria.";
+                    String logMessage = resultado_error + "->" + descrip_error;
+                    logger.registrarError(Logger.GRAVE, logMessage, Constantes.NOMBRE_APP, Constantes.NOMBRE_MODULO, username);
                     ret = resultado_error + "&"+descrip_error;
                 }
                 call.close();
@@ -282,8 +284,9 @@ public class VerificarDAO {
                     ret = String.valueOf(cuenta_fichas) + "&" + "Ficha(s) disponobles";
                     call.close();
                 } else {
-                    GeneraAuditoria aud = new GeneraAuditoria();
-                    aud.crea_archivo(Integer.toString(resultado_error), descrip_error, "Sucedio un error al trattar de obtener la cuenta de fichas disponibles");
+                    //"Sucedio un error al trattar de obtener la cuenta de fichas disponibles"
+                    String logMessage = resultado_error + "->" + descrip_error;
+                    logger.registrarError(Logger.GRAVE, logMessage, Constantes.NOMBRE_APP, Constantes.NOMBRE_MODULO, username);
                     call.close();
                     return "-100" + "&" + descrip_error;
                 }
