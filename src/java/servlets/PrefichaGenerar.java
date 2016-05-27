@@ -39,10 +39,10 @@ public class PrefichaGenerar extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         response.setContentType("application/pdf");
-        String curp = request.getParameter("curp");
-        curp = e.decrypt(curp);
-        CreatePreficha2 preficha = new CreatePreficha2();
-        ByteArrayOutputStream obj=preficha.create(getServletContext(), curp);
+//        String curp = request.getParameter("curp");
+//        curp = e.decrypt(curp);
+//        CreatePreficha2 preficha = new CreatePreficha2();
+//        ByteArrayOutputStream obj=preficha.create(getServletContext(), curp);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -6,18 +6,19 @@ package beans;
  */
 public class PrefichaModel {
 
-    String periodobd;
-    String fechapdf;
-    String prefichabd;
-    String nombrebd;
-    String apellidosbd;
-    String curpbd;
-    String carrerabd;
-    String modalidadbd;
-    String importe_bd;
-    String ref_bancaria;
+    private String periodobd;
+    private String mensaje;
+    private String fechapdf;
+    private String prefichabd;
+    private String nombrebd;
+    private String apellidosbd;
+    private String curpbd;
+    private String carrerabd;
+    private String modalidadbd;
+    private String importe_bd;
+    private String ref_bancaria;
     private String fecha_limite_pago;
-    int existe;
+    private int existe;
 
     public int getExiste() {
         return existe;
@@ -113,6 +114,20 @@ public class PrefichaModel {
     
     public void setFecha_limite_pago(String fecha_limite_pago) {
         this.fecha_limite_pago = fecha_limite_pago;
+    }
+
+    /**
+     * @return the mensaje
+     */
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    /**
+     * @param mensaje the mensaje to set
+     */
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
     }
 
 }

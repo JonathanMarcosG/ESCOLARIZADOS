@@ -12,7 +12,6 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import modelos.GeneraAuditoria;
 import mx.edu.ittoluca.logutils.Logger;
 import oracle.jdbc.driver.OracleTypes;
 
@@ -63,6 +62,7 @@ public class ValidacionesDAO {
         } else {
             //Sólo se gestiona la respuesta que se dará al usuario, la librería ya loguea los errores al crear la conexión.
             //El error traducido está en Conexion.getConnectionErrorMessage();
+            retorna = -1;
         }
         return retorna;
     }
@@ -82,6 +82,7 @@ public class ValidacionesDAO {
     public static String GetValidaCorreo(String username, String password, String correo, String liga) {
         String existe = "23";
         String existeDesc = "No error description";
+        String cod_error;
         Logger logger = new Logger();
         Connection conn = Conexion.getConnection(username, password, Constantes.NOMBRE_APP, Constantes.NOMBRE_MODULO);
         if (conn != null) {
@@ -98,13 +99,22 @@ public class ValidacionesDAO {
                 call.registerOutParameter("paMjeDescError", OracleTypes.VARCHAR);
                 //Ejecución del SP
                 call.execute();
-                int tmp = call.getInt("paRespuesta");
-                existe = String.valueOf(tmp);
+                cod_error = call.getString("paCodigoError");
                 existeDesc = call.getString("paMjeDescError");
+                int tmp = call.getInt("paRespuesta");
+                if ("0".equals(cod_error)) {
+                    existe = String.valueOf(tmp);
+                } else {
+                    existe = String.valueOf(tmp);
+                    String logMessage = cod_error + "->" + existeDesc;
+                    logger.registrarError(Logger.GRAVE, logMessage, Constantes.NOMBRE_APP, Constantes.NOMBRE_MODULO, username);
+                }
                 call.close();
             } catch (SQLException ex) {
                 //Loggeo del error.
                 logger.registrarErrorSQL(ex, Constantes.NOMBRE_APP, Constantes.NOMBRE_MODULO, username);
+                existe = "4";
+                existeDesc = logger.getMensajeError();
                 //Gestión de la respuesta para el usuario.
                 //Se obtiene la traducción del error con: logger.getMensajeError();
 
@@ -115,19 +125,22 @@ public class ValidacionesDAO {
         } else {
             //Sólo se gestiona la respuesta que se dará al usuario, la librería ya loguea los errores al crear la conexión.
             //El error traducido está en Conexion.getConnectionErrorMessage();
+            existe = "4";
+            existeDesc = Conexion.getConnectionErrorMessage();
         }
         return existe + "&" + existeDesc;
     }
 
     public static PrefichaModel recuperaPreficha(String username, String password, String curp) {
         PrefichaModel prefichaTmp = new PrefichaModel();
+        String resultado_error;
+        String nombrebd;
+        String descrip_error;
         Logger logger = new Logger();
         Connection conn = Conexion.getConnection(username, password, Constantes.NOMBRE_APP, Constantes.NOMBRE_MODULO);
         if (conn != null) {
             //Se genera el bloque try-catch-finally
             try {
-                String resultado_error;
-                String nombrebd;
 
                 CallableStatement call = conn.prepareCall("{call FICHAS.PQ_GET_ASPIRANTE_2.GET_RECUPERAR_PREFICHA_ASP_SP(?,?,?,?)}");
                 call.setString("paCurpAspirante", curp);
@@ -136,6 +149,7 @@ public class ValidacionesDAO {
                 call.registerOutParameter("paMjeDescError", OracleTypes.VARCHAR);
                 call.execute();
                 resultado_error = call.getString("paCodigoError");
+                descrip_error = call.getString("paMjeDescError");
 
                 if ("0".equals(resultado_error)) {
                     ResultSet rset = (ResultSet) call.getObject("paCurRetorno");
@@ -149,6 +163,7 @@ public class ValidacionesDAO {
                             String apmat = rset.getObject("APELLIDO_MAT").toString();
                             String date_exp_ref = rset.getString("FECHA_EXPIRA_REF");
 
+                            prefichaTmp.setMensaje(descrip_error);
                             prefichaTmp.setNombrebd(rset.getObject("NOMBRE").toString());
                             prefichaTmp.setApellidosbd(appat + " " + apmat);
                             prefichaTmp.setCarrerabd(rset.getObject("NOMBRE_CARRERA").toString());
@@ -172,13 +187,17 @@ public class ValidacionesDAO {
                     }
                     call.close();
                 } else {
-                    GeneraAuditoria ob = new GeneraAuditoria();
-                    ob.crea_archivo(resultado_error, "No se logró crear la preficha", "Error al generar la Preficha.");
+                    String logMessage = resultado_error + "->" + descrip_error;
+                    logger.registrarError(Logger.GRAVE, logMessage, Constantes.NOMBRE_APP, Constantes.NOMBRE_MODULO, username);
+                    prefichaTmp.setExiste(0);
+                    prefichaTmp.setMensaje(descrip_error);
 
                 }
             } catch (SQLException ex) {
                 //Loggeo del error.
                 logger.registrarErrorSQL(ex, Constantes.NOMBRE_APP, Constantes.NOMBRE_MODULO, username);
+                prefichaTmp.setExiste(0);
+                prefichaTmp.setMensaje(logger.getMensajeError());
                 //Gestión de la respuesta para el usuario.
                 //Se obtiene la traducción del error con: logger.getMensajeError();
 
@@ -189,6 +208,9 @@ public class ValidacionesDAO {
         } else {
             //Sólo se gestiona la respuesta que se dará al usuario, la librería ya loguea los errores al crear la conexión.
             //El error traducido está en Conexion.getConnectionErrorMessage();
+            prefichaTmp.setExiste(0);
+            prefichaTmp.setMensaje(Conexion.getConnectionErrorMessage());
+            
         }
         return prefichaTmp;
     }

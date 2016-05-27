@@ -1075,9 +1075,6 @@ $(document).ready(function () {
                 });
             } else {
                 prefichas(data);
-//                $('#divMarcoNoFichas').modal({
-//                    backdrop: "static"
-//                });
             }
         });
 
@@ -1454,6 +1451,9 @@ $(document).ready(function () {
                                     }
                                     if (data == 7) {
                                         alert("El codigo postal solo puede contener números");
+                                    }
+                                    if (data ==-1) {
+                                        alert("Ha ocurrido un error, por el momento la pagina se encuentra indispuesta. Le recomendamos intentarlo mas tarde Gracias.");
                                     }
                                     if (data == 8) {
                                         alert("Porfavor verifique el periodo en el apartado de escuela de procedencia.");

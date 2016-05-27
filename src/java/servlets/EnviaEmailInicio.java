@@ -54,11 +54,10 @@ public class EnviaEmailInicio extends HttpServlet {
 
             //Obtenemos la cadena compuesta de la verificacion del correo 
             //  y la transformamos a vector
-            String[] cadExiste = ValidacionesDAO.GetValidaCorreo(Constantes.BD_NAME,Constantes.BD_PASS,correo, UrlEnc).split("&");
+            String[] cadExiste = ValidacionesDAO.GetValidaCorreo(Constantes.BD_NAME,Constantes.BD_NAME,correo, UrlEnc).split("&");
             int existe = Integer.parseInt(cadExiste[0]);
             String msg = cadExiste[1].trim();
             
-//            existe =0;
             switch (existe) {
 
                 case 0:

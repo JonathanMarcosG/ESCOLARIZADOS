@@ -100,6 +100,15 @@
         <servlet-name>ValidaRenovar</servlet-name>
         <servlet-class>servlets.ValidaRenovar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Servlet_ClaveCCT</servlet-name>
+        <servlet-class>servlets.Servlet_ClaveCCT</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>Servlet_ClaveCCT</servlet-name>
+        <url-pattern>/Servlet_ClaveCCT</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ServletActualizarListas</servlet-name>
         <url-pattern>/ServletActualizarListas</url-pattern>

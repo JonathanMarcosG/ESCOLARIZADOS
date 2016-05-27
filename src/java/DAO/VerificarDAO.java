@@ -86,7 +86,7 @@ public class VerificarDAO {
                     return val_per;
                 } else {
                     //"Error al momento de obtener la convocatoria para el periodo y año actual"
-                    String logMessage = resultado_error + "->" + descrip_error ;
+                    String logMessage = resultado_error + "->" + descrip_error;
                     logger.registrarError(Logger.GRAVE, logMessage, Constantes.NOMBRE_APP, Constantes.NOMBRE_MODULO, username);
                     call.close();
                     return resultado_error + "&" + descrip_error;
@@ -94,6 +94,7 @@ public class VerificarDAO {
             } catch (SQLException ex) {
                 //Loggeo del error.
                 logger.registrarErrorSQL(ex, Constantes.NOMBRE_APP, Constantes.NOMBRE_MODULO, username);
+                val_per = "1" + "&" + logger.getMensajeError();
                 //Gestión de la respuesta para el usuario.
                 //Se obtiene la traducción del error con: logger.getMensajeError();
 
@@ -104,7 +105,8 @@ public class VerificarDAO {
         } else {
             //Sólo se gestiona la respuesta que se dará al usuario, la librería ya loguea los errores al crear la conexión.
             //El error traducido está en Conexion.getConnectionErrorMessage();
-            val_per = "1" + "&" + "Error al momento de obtener la convocatoria para el periodo y año actual";
+//            val_per = "1" + "&" + "Error al momento de obtener la convocatoria para el periodo y año actual";
+            val_per = "1" + "&" + Conexion.getConnectionErrorMessage();
         }
         return val_per;
     }
@@ -154,6 +156,12 @@ public class VerificarDAO {
             } catch (SQLException ex) {
                 //Loggeo del error.
                 logger.registrarErrorSQL(ex, Constantes.NOMBRE_APP, Constantes.NOMBRE_MODULO, username);
+                descrip_error = logger.getMensajeError();
+                fecha.setCodError(1);
+                fecha.setDescError(descrip_error);
+                fecha.setFechaFin("");
+                fecha.setFechaIni("");
+                fechaList.add(fecha);
                 //Gestión de la respuesta para el usuario.
                 //Se obtiene la traducción del error con: logger.getMensajeError();
             } finally {
@@ -162,9 +170,7 @@ public class VerificarDAO {
             }
         } else {
             fecha.setCodError(1);
-            fecha.setDescError("Estimado aspirante, se le notifica que "
-                    + "la conexión con la Base de Datos para la renovación de referencia no está "
-                    + "disponible en estos momentos, favor de intentarlo mas tarde.");
+            fecha.setDescError(Conexion.getConnectionErrorMessage());
             fecha.setFechaFin("");
             fecha.setFechaIni("");
             fechaList.add(fecha);
@@ -235,13 +241,14 @@ public class VerificarDAO {
                     //"Error al momento de validar la CURP del aspirante para renovar su referencia bancaria.";
                     String logMessage = resultado_error + "->" + descrip_error;
                     logger.registrarError(Logger.GRAVE, logMessage, Constantes.NOMBRE_APP, Constantes.NOMBRE_MODULO, username);
-                    ret = resultado_error + "&"+descrip_error;
+                    ret = resultado_error + "&" + descrip_error;
                 }
                 call.close();
 
             } catch (SQLException ex) {
                 //Loggeo del error.
                 logger.registrarErrorSQL(ex, Constantes.NOMBRE_APP, Constantes.NOMBRE_MODULO, username);
+                ret="2"+"&"+logger.getMensajeError();
                 //Gestión de la respuesta para el usuario.
                 //Se obtiene la traducción del error con: logger.getMensajeError();
 
@@ -252,8 +259,7 @@ public class VerificarDAO {
         } else {
             //Sólo se gestiona la respuesta que se dará al usuario, la librería ya loguea los errores al crear la conexión.
             //El error traducido está en Conexion.getConnectionErrorMessage();
-            ret = "1" + "&" + "Estimado aspirante, en estos momentos no es posible "
-                    + "generar su referencia bancaria, le recomendamos intentarlo mas tarde.";
+            ret = "1" + "&" + Conexion.getConnectionErrorMessage();
         }
         return ret;
     }
@@ -280,7 +286,7 @@ public class VerificarDAO {
                 resultado_error = call.getInt("paCodigoError");
                 descrip_error = call.getString("paMjeDescError");
                 cuenta_fichas = call.getInt("paCuentaFichas");
-                if (resultado_error==0) {
+                if (resultado_error == 0) {
                     ret = String.valueOf(cuenta_fichas) + "&" + "Ficha(s) disponobles";
                     call.close();
                 } else {
@@ -293,6 +299,7 @@ public class VerificarDAO {
             } catch (SQLException ex) {
                 //Loggeo del error.
                 logger.registrarErrorSQL(ex, Constantes.NOMBRE_APP, Constantes.NOMBRE_MODULO, username);
+                ret = "-10" + "&" + logger.getMensajeError();
                 //Gestión de la respuesta para el usuario.
                 //Se obtiene la traducción del error con: logger.getMensajeError();
 
@@ -303,8 +310,7 @@ public class VerificarDAO {
         } else {
             //Sólo se gestiona la respuesta que se dará al usuario, la librería ya loguea los errores al crear la conexión.
             //El error traducido está en Conexion.getConnectionErrorMessage();
-            ret = "-10" + "&" + "Estimado aspirante, por el momento el Preregistro "
-                    + "de Aspirantes se encuentra indispuesta. Le recomendamos intentarlo mas tarde.";
+            ret = "-10" + "&" + Conexion.getConnectionErrorMessage();
         }
         return ret;
     }

@@ -140,6 +140,8 @@ public class InsercionesDAO {
             } catch (SQLException ex) {
                 //Loggeo del error.
                 logger.registrarErrorSQL(ex, Constantes.NOMBRE_APP, Constantes.NOMBRE_MODULO, username);
+                resultado=2;
+                error=logger.getMensajeError();
                 //Gestión de la respuesta para el usuario.
                 //Se obtiene la traducción del error con: logger.getMensajeError();
 
@@ -151,10 +153,8 @@ public class InsercionesDAO {
             //Sólo se gestiona la respuesta que se dará al usuario, la librería ya loguea los errores al crear la conexión.
             //El error traducido está en Conexion.getConnectionErrorMessage();
             resultado=2;
-            error="Ha ocurrido un error, no se puedo establecer la conexión con el servidor de Base de Datos.";
+            error=Conexion.getConnectionErrorMessage();
         }
-        System.out.println(resultado);
-        System.out.println(error);
         return resultado + "&" + error;
     }
 }

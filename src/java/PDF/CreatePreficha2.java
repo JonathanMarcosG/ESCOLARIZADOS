@@ -324,7 +324,7 @@ public class CreatePreficha2 {
                     + "                                                                                coincidencias con su clave CURP.", FontFactory.getFont("arial", 14, Font.BOLD));
             curpNoEncontrada.setAlignment(Element.ALIGN_LEFT);
             doc.add(curpNoEncontrada);
-
+            
             doc.add(vacio);
             doc.add(vacio);
             doc.add(vacio);
@@ -364,7 +364,7 @@ public class CreatePreficha2 {
                     + "              - Revise el apartado de preguntas frecuentes que se encuentra en la página www.ittoluca.edu.mx\n"
                     + "              - En la sección de contacto, se encuentran el teléfono de contacto y la extensión.\n"
                     + "              - Otra alternativa es enviar un correo exponiendo su situación al departamento de servicios \n"
-                    + "                escolares."
+                    + "                escolares, indicando el error que ocurrió."
                     + "\n"
                     + ""
                     + "", FontFactory.getFont("arial", 10, Font.BOLD));
@@ -374,6 +374,13 @@ public class CreatePreficha2 {
             doc.add(vacio);
             doc.add(vacio);
             doc.add(vacio);
+            
+            
+
+            Paragraph msgError = new Paragraph(""
+                    +"Error: "+preficha.getMensaje(), FontFactory.getFont("arial", 8, Font.PLAIN));
+            msgError.setAlignment(Element.ALIGN_CENTER);
+            doc.add(msgError);
 
             Paragraph no_comprobante = new Paragraph(""
                     + "Este documento carece de validéz oficial, su función es servir como medio de comunicación.", FontFactory.getFont("arial", 8, Font.PLAIN, BaseColor.RED));

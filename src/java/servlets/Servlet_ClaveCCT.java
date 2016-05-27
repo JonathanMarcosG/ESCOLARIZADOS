@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,7 +23,6 @@ import javax.servlet.http.HttpServletResponse;
  * Obtiene  el catalogo de escuelas  filtrado por  Estados  --Filtrado por municipios(pendiente)
  * @author ElyyzZ BaRruEtA
  */
-@WebServlet(name = "Servlet_ClaveCCT", urlPatterns = {"/Servlet_ClaveCCT"})
 public class Servlet_ClaveCCT extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -39,8 +37,7 @@ public class Servlet_ClaveCCT extends HttpServlet {
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(Servlet_ClaveCCT.class.getName()).log(Level.SEVERE, null, ex);
         } 
-        String json = null;
-        json = new Gson().toJson(ClaveCCT);
+        String json = new Gson().toJson(ClaveCCT);
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write(json);

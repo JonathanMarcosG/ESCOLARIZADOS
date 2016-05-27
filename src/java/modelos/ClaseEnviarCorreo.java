@@ -51,7 +51,7 @@ public class ClaseEnviarCorreo {
         int retorno = 0;
         addContent(formato(cuerpo));
         addImagen(context);
-        addPDF(context);
+//        addPDF(context);
 
         Session session = Session.getDefaultInstance(propiedades());
         MimeMessage message = new MimeMessage(session);
@@ -229,17 +229,17 @@ public class ClaseEnviarCorreo {
 
         return content;
     }
-
-    public void addPDF(ServletContext context) throws Exception {
-        String url_cab = "/PDF/Manual-CENEVAL.pdf";
-        String cab_img = context.getRealPath(url_cab);
-        BodyPart messageBodyPart = new MimeBodyPart();
-        DataSource fds = new FileDataSource(cab_img);
-        messageBodyPart.setDataHandler(new DataHandler(fds));
-        messageBodyPart.setFileName("Manual-CENEVAL.pdf");
-        this.multipart.addBodyPart(messageBodyPart);
-        
-    }
+//
+//    public void addPDF(ServletContext context) throws Exception {
+//        String url_cab = "/PDF/Manual-CENEVAL.pdf";
+//        String cab_img = context.getRealPath(url_cab);
+//        BodyPart messageBodyPart = new MimeBodyPart();
+//        DataSource fds = new FileDataSource(cab_img);
+//        messageBodyPart.setDataHandler(new DataHandler(fds));
+//        messageBodyPart.setFileName("Manual-CENEVAL.pdf");
+//        this.multipart.addBodyPart(messageBodyPart);
+//        
+//    }
     public void addImagen(ServletContext context) throws Exception {
 
         String url_cab = "/Imagenes/header_ittoluca.png";

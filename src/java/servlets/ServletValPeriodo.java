@@ -38,7 +38,7 @@ public class ServletValPeriodo extends HttpServlet {
         response.setContentType("text/plain");
         PrintWriter out = response.getWriter();
         
-        String cadenaVig = VerificarDAO.period2(Constantes.BD_NAME,Constantes.BD_PASS);
+        String cadenaVig = VerificarDAO.period2(Constantes.BD_NAME,Constantes.BD_NAME);
         String[] validaVig = cadenaVig.split("&") ;
         
         
